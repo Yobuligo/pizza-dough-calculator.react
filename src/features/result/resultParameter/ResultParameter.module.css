@@ -1,0 +1,24 @@
+.resultParameter {
+  display: flex;
+  flex-direction: row;
+}
+
+.resultParameterValue {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  width: 3rem;
+}
+
+.resultParameterItem {
+  display: flex;
+  flex-direction: row;
+}
+
+.resultParameterUnit {
+  margin-left: 0.25rem;
+}
+
+.resultParameterTitle {
+  margin-left: 1rem;
+}
