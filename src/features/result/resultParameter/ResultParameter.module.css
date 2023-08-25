@@ -13,12 +13,9 @@
 .resultParameterItem {
   display: flex;
   flex-direction: row;
+  width: 5rem;
 }
 
 .resultParameterUnit {
   margin-left: 0.25rem;
-}
-
-.resultParameterTitle {
-  margin-left: 1rem;
 }

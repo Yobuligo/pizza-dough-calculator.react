@@ -10,7 +10,7 @@ export function ResultParameter<T>(props: IResultParameterProps<T>) {
         </div>
         <div className={styles.resultParameterUnit}>{props.parameter.unit}</div>
       </div>
-      <div className={styles.resultParameterTitle}>{props.parameter.title}</div>
+      <div>{props.parameter.title}</div>
     </div>
   );
 }
