@@ -1,0 +1,12 @@
+.parameter {
+  display: flex;
+  flex-direction: row;
+}
+
+.parameter label {
+  width: 10rem;
+}
+
+.parameter input {
+  width: 3rem;
+}
