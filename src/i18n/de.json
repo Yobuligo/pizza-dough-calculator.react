@@ -12,5 +12,12 @@
         "yeastType": "Hefetyp",
         "dryYeast": "Trockenhefe",
         "freshYeast": "Frischhefe"
+    },
+    "result": {
+        "totalMass": "Gesamtmasse",
+        "flour": "Mehl",
+        "water": "Wasser",
+        "salt": "Salz",
+        "grams": "Gramm"
     }
 }

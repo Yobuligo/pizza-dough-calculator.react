@@ -3,6 +3,7 @@ import { useTranslation } from "../hooks/useTranslation";
 import { IParameter } from "../model/IParameter";
 import { UnitType } from "../types/UnitType";
 import { ParameterList } from "./parameterList/ParameterList";
+import { TotalMass } from "./result/totalMass/TotalMass";
 
 export const Dashboard: React.FC = () => {
   const { t } = useTranslation();
@@ -44,6 +45,7 @@ export const Dashboard: React.FC = () => {
 
   return (
     <>
+      <TotalMass weight={2500}/>
       <ParameterList parameters={parameters} />
     </>
   );

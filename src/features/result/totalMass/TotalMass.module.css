@@ -1,0 +1,21 @@
+.totalMass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  background-color: rgba(0, 128, 0, 0.075);
+  color: green;
+  padding: 0.5rem;
+}
+
+.totalMassHeader {
+  font-size: medium;
+}
+
+.totalMassMain {
+  font-size: x-large;
+}
+
+.totalMassFooter {
+  font-size: medium;
+}

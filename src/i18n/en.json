@@ -12,5 +12,12 @@
         "yeastType": "Yeast type",
         "dryYeast": "Dry yeast",
         "freshYeast": "Fresh yeast"
+    },
+    "result": {
+        "totalMass": "Total mass",
+        "flour": "Flour",
+        "water": "Water",
+        "salt": "Salt",
+        "grams": "Grams"
     }
 }
