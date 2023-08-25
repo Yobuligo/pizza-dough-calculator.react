@@ -1,2 +1,13 @@
 .result {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.resultTotalMass {
+  width: 8rem;
+}
+
+.resultParameters {
+  margin-left: 1rem;
 }

@@ -3,8 +3,7 @@ import { useTranslation } from "../hooks/useTranslation";
 import { IParameter } from "../model/IParameter";
 import { UnitType } from "../types/UnitType";
 import { ParameterList } from "./parameterList/ParameterList";
-import { TotalMass } from "./result/totalMass/TotalMass";
-import { ResultList } from "./result/resultList/ResultList";
+import { Result } from "./result/result/Result";
 
 export const Dashboard: React.FC = () => {
   const { t } = useTranslation();
@@ -27,7 +26,7 @@ export const Dashboard: React.FC = () => {
         id: "3",
         title: t.parameters.hydration,
         unit: UnitType.PERCENT,
-        value: 0,
+        value: 10000,
       },
       {
         id: "4",
@@ -39,15 +38,14 @@ export const Dashboard: React.FC = () => {
         id: "5",
         title: t.parameters.amountPreDough,
         unit: UnitType.PERCENT,
-        value: 0,
+        value: 1000,
       },
     ];
   }, [t.parameters.numberOfPizzas]);
 
   return (
     <>
-      <TotalMass weight={2500}/>
-      <ResultList parameters={parameters}/>
+      <Result parameters={parameters}/>
       <ParameterList parameters={parameters} />
     </>
   );
