@@ -1,3 +1,16 @@
 {
-    "title": "Pizzateig Rechner"
+    "title": "Pizzateig Rechner",
+    "parameters": {
+        "numberOfPizzas": "Anzahl Pizzen",
+        "weightOfDoughPiece": "Gewicht Teigling",
+        "hydration": "Hydration",
+        "salt": "Salz",
+        "amountPreDough": "Menge Vorteig",
+        "risingTime": "Gehzeit",
+        "short": "Kurz",
+        "long": "Lang",
+        "yeastType": "Hefetyp",
+        "dryYeast": "Trockenhefe",
+        "freshYeast": "Frischhefe"
+    }
 }
