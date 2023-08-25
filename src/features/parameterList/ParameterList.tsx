@@ -1,3 +1,4 @@
+import { Card } from "../../components/card/Card";
 import { Parameter } from "../parameter/Parameter";
 import { IParameterListProps } from "./IParameterListProps";
 import styles from "./ParameterList.module.css";
@@ -8,5 +9,5 @@ export const ParameterList: React.FC<IParameterListProps> = (props) => {
       <Parameter parameter={parameter} />
     </div>
   ));
-  return <>{items}</>;
+  return <Card>{items}</Card>;
 };

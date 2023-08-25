@@ -1,3 +1,9 @@
+.parameterList{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .parameterListItem {
   margin-top: 0.5rem;
 }

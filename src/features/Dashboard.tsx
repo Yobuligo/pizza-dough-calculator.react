@@ -43,9 +43,32 @@ export const Dashboard: React.FC = () => {
     ];
   }, [t.parameters.numberOfPizzas]);
 
+  const resultParameters = useMemo((): IParameter<any>[] => {
+    return [
+      {
+        id: "1",
+        title: t.result.flour,
+        unit: UnitType.GRAMS,
+        value: 0,
+      },
+      {
+        id: "2",
+        title: t.result.water,
+        unit: UnitType.GRAMS,
+        value: 0,
+      },
+      {
+        id: "3",
+        title: t.result.salt,
+        unit: UnitType.GRAMS,
+        value: 0,
+      },
+    ];
+  }, [t.parameters.numberOfPizzas]);
+
   return (
     <>
-      <Result parameters={parameters}/>
+      <Result parameters={resultParameters} />
       <ParameterList parameters={parameters} />
     </>
   );

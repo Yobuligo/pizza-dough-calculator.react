@@ -31,6 +31,8 @@ export function Parameter<T>(props: IParameterProps<T>) {
         id={id}
         type={type()}
         value={value as string}
+        max={10000}
+        min={0}
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
           let value = event.target.value;
           if (typeof value === "number") {
