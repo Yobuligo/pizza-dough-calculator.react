@@ -63,6 +63,12 @@ export const Dashboard: React.FC = () => {
         unit: UnitType.GRAMS,
         value: 0,
       },
+      {
+        id: "4",
+        title: t.result.honey,
+        unit: UnitType.GRAMS,
+        value: 0,
+      },      
     ];
   }, [t.parameters.numberOfPizzas]);
 
