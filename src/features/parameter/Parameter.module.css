@@ -10,3 +10,7 @@
 .parameter input {
   width: 3rem;
 }
+
+.parameterUnit {
+  margin-left: 0.25rem;
+}

@@ -1,4 +1,5 @@
+import { IParameter } from "../../model/IParameter";
+
 export interface IParameterProps<T> {
-  initialValue: T;
-  label: string;
+  parameter: IParameter<T>;
 }

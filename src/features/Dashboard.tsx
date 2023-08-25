@@ -1,32 +1,26 @@
-import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import { useMemo } from "react";
 import { useTranslation } from "../hooks/useTranslation";
-import { Parameter } from "./parameter/Parameter";
+import { IParameter } from "../model/IParameter";
+import { UnitType } from "../types/UnitType";
+import { ParameterList } from "./parameterList/ParameterList";
 
 export const Dashboard: React.FC = () => {
   const { t } = useTranslation();
-  const context = useContext(AppContext);
+
+  const parameters = useMemo((): IParameter<any>[] => {
+    return [
+      {
+        id: "1",
+        title: t.parameters.numberOfPizzas,
+        unit: UnitType.AMOUNT,
+        value: 0,
+      },
+    ];
+  }, []);
 
   return (
     <>
-      <Parameter
-        label={t.parameters.numberOfPizzas}
-        initialValue={context.numberOfPizzas.value}
-      />
-      <Parameter
-        label={t.parameters.weightOfDoughPiece}
-        initialValue={context.weightOfDoughPiece.value}
-      />
-      <Parameter
-        label={t.parameters.hydration}
-        initialValue={context.hydration.value}
-      />
-
-      <Parameter label={t.parameters.salt} initialValue={context.salt.value} />
-      <Parameter
-        label={t.parameters.amountPreDough}
-        initialValue={context.amountPreDough.value}
-      />
+      <ParameterList parameters={parameters} />
     </>
   );
 };

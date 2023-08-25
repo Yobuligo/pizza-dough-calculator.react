@@ -4,17 +4,17 @@ import { IParameterProps } from "./IParameterProps";
 import styles from "./Parameter.module.css";
 
 export function Parameter<T>(props: IParameterProps<T>) {
-  const [value, setValue] = useState<T>(props.initialValue);
+  const [value, setValue] = useState<T>(props.parameter.value);
   const id = useId();
 
   const type = (): HTMLInputTypeAttribute => {
-    switch (typeof props.initialValue) {
+    switch (typeof props.parameter.value) {
       case "string":
         return "text";
       case "number":
         return "number";
       case "object": {
-        if (props.initialValue instanceof Date) {
+        if (props.parameter.value instanceof Date) {
           return "date";
         }
         return "text";
@@ -26,7 +26,7 @@ export function Parameter<T>(props: IParameterProps<T>) {
 
   return (
     <div className={styles.parameter}>
-      <label htmlFor={id}>{props.label}</label>
+      <label htmlFor={id}>{props.parameter.title}</label>
       <input
         id={id}
         type={type()}
@@ -40,6 +40,7 @@ export function Parameter<T>(props: IParameterProps<T>) {
           }
         }}
       />
+      <div className={styles.parameterUnit}>{props.parameter.unit}</div>
     </div>
   );
 }
