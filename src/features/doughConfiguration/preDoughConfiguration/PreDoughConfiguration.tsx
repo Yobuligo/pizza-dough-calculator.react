@@ -39,6 +39,7 @@ export const PreDoughConfiguration: React.FC = () => {
         <Switch
           id="preDough"
           onChange={(_, checked) => setUsePreDough(checked)}
+          value={usePreDough}
         />
         <input
           id="preDoughPercentage"

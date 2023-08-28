@@ -1,0 +1,12 @@
+.input {
+  width: 4rem;
+  border: 1px solid var(--secondaryColor);
+  color: var(--secondaryColor);
+  font-weight: var(--inputFieldFontWeight);
+}
+
+.unit {
+  display: inline-block;
+  margin-left: 0.2rem;
+  width: 1rem;
+}

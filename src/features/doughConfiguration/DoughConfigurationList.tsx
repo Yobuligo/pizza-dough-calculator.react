@@ -4,17 +4,16 @@ import styles from "./DoughtConfigurationList.module.css";
 import { ConfigurationInputItem } from "./components/configuration/configurationInputItem/ConfigurationInputItem";
 import { PreDoughConfiguration } from "./preDoughConfiguration/PreDoughConfiguration";
 import { AppContext } from "../../context/AppContext";
+import { Unit } from "../ingredient/model/Unit";
 
 export const DoughConfigurationList: React.FC = () => {
   const { t } = useTranslation();
-
   const context = useContext(AppContext);
 
   return (
     <div className={styles.doughConfigurationList}>
       <fieldset>
         <legend>{t.parameters.title}</legend>
-        <PreDoughConfiguration />
         <ConfigurationInputItem
           configuration={{ name: t.parameters.numberOfPizzas }}
           initialValue={context.doughConfig.value.numberOfPizzas}
@@ -23,8 +22,38 @@ export const DoughConfigurationList: React.FC = () => {
               return { ...previous, numberOfPizzas: value };
             });
           }}
-          children={undefined}
         />
+        <ConfigurationInputItem
+          configuration={{ name: t.parameters.weightOfDoughPiece }}
+          initialValue={context.doughConfig.value.weightOfDoughPiece}
+          unit={Unit.GRAMS}
+          onInputChange={(value: number) => {
+            context.doughConfig.setValue((previous) => {
+              return { ...previous, weightOfDoughPiece: value };
+            });
+          }}
+        />
+        <ConfigurationInputItem
+          configuration={{ name: t.parameters.hydration }}
+          initialValue={context.doughConfig.value.hydration}
+          unit={Unit.PERCENT}
+          onInputChange={(value: number) => {
+            context.doughConfig.setValue((previous) => {
+              return { ...previous, hydration: value };
+            });
+          }}
+        />
+        <ConfigurationInputItem
+          configuration={{ name: t.parameters.salt }}
+          initialValue={context.doughConfig.value.salt}
+          unit={Unit.PERCENT}
+          onInputChange={(value: number) => {
+            context.doughConfig.setValue((previous) => {
+              return { ...previous, salt: value };
+            });
+          }}
+        />
+        <PreDoughConfiguration />
       </fieldset>
     </div>
   );
