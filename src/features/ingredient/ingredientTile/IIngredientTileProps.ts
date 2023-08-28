@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
+import { IIngredient } from "../model/IIngredient";
 
 export interface IIngredientProps {
-  name: string;
-  amount: string;
+  ingredient: IIngredient;
   image: (className?: string) => ReactNode;
 }

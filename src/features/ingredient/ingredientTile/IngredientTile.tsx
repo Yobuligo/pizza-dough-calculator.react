@@ -6,8 +6,10 @@ export const IngredientTile: React.FC<IIngredientProps> = (props) => {
     <div className={styles.ingredientTile}>
       <div className={styles.ingredientGrid}>
         {props.image(styles.image)}
-        <div className={styles.ingredientTitle}>{props.name}</div>
-        <div className={styles.ingredientAmount}>{props.amount}</div>
+        <div className={styles.ingredientTitle}>{props.ingredient.name}</div>
+        <div
+          className={styles.ingredientAmount}
+        >{`${props.ingredient.amount}${props.ingredient.unit}`}</div>
       </div>
     </div>
   );

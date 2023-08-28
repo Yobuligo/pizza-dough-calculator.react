@@ -1,6 +1,6 @@
 import { useTranslation } from "../hooks/useTranslation";
 import { DoughConfigurationList } from "./doughConfiguration/DoughConfigurationList";
-import { IngredientList } from "./ingredientList/IngredientList";
+import { IngredientList } from "./ingredient/ingredientList/IngredientList";
 // import { IngredientTile } from "./ingredientTile/IngredientTile";
 
 // import { ReactComponent as Grain } from "../assets/grain.svg";

@@ -1,44 +1,51 @@
 import { IngredientTile } from "../ingredientTile/IngredientTile";
 import styles from "./IngredientList.module.css";
-import { ReactComponent as Flour } from "../../assets/grain.svg";
-import { ReactComponent as Salt } from "../../assets/salt.svg";
-import { ReactComponent as Water } from "../../assets/water.svg";
-import { ReactComponent as Honey } from "../../assets/honey.svg";
-import { ReactComponent as Yeast } from "../../assets/yeast.svg";
+import { ReactComponent as Flour } from "../../../assets/grain.svg";
+import { ReactComponent as Salt } from "../../../assets/salt.svg";
+import { ReactComponent as Water } from "../../../assets/water.svg";
+import { ReactComponent as Honey } from "../../../assets/honey.svg";
+import { ReactComponent as Yeast } from "../../../assets/yeast.svg";
+import { Unit } from "../model/Unit";
+import { useTranslation } from "../../../hooks/useTranslation";
 
 export const IngredientList: React.FC = () => {
+  const { t } = useTranslation();
+
   const flour = (
     <IngredientTile
-      name="Flour"
-      amount="1600g"
+      ingredient={{ name: t.ingredients.flour, amount: 1600, unit: Unit.GRAMS }}
       image={(className) => <Flour className={className} />}
     />
   );
   const salt = (
     <IngredientTile
-      name="Salt"
-      amount="63g"
+      ingredient={{ name: t.ingredients.salt, amount: 63, unit: Unit.GRAMS }}
       image={(className) => <Salt className={className} />}
     />
   );
   const water = (
     <IngredientTile
-      name="Water"
-      amount="250ml"
+      ingredient={{
+        name: t.ingredients.water,
+        amount: 250,
+        unit: Unit.MILLILITER,
+      }}
       image={(className) => <Water className={className} />}
     />
   );
   const honey = (
     <IngredientTile
-      name="Honey"
-      amount="50ml"
+      ingredient={{
+        name: t.ingredients.honey,
+        amount: 50,
+        unit: Unit.MILLILITER,
+      }}
       image={(className) => <Honey className={className} />}
     />
   );
   const yeast = (
     <IngredientTile
-      name="Yeast"
-      amount="5g"
+      ingredient={{ name: t.ingredients.yeast, amount: 5, unit: Unit.GRAMS }}
       image={(className) => <Yeast className={className} />}
     />
   );
