@@ -1,12 +1,12 @@
+import { IRecipeWithPreDough } from "../../../types/IRecipeWithPreDough";
 import { TotalMassCalculator } from "../../totalMassCalculator/TotalMassCalculator";
 import { ICalculator } from "../core/ICalculator";
 import { IParameterWithPreDough } from "./IParameterWithPreDough";
-import { IResultWithPreDough } from "./IResultWithPreDough";
 
 class CalculatorWithPreDoughDefault
-  implements ICalculator<IParameterWithPreDough, IResultWithPreDough>
+  implements ICalculator<IParameterWithPreDough, IRecipeWithPreDough>
 {
-  calc(parameter: IParameterWithPreDough): IResultWithPreDough {
+  calc(parameter: IParameterWithPreDough): IRecipeWithPreDough {
     const totalMassResult = TotalMassCalculator.calc(parameter);
 
     if (totalMassResult.totalFlour + totalMassResult.totalWater < 333) {

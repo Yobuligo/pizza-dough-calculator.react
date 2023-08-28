@@ -7,9 +7,12 @@ import { ReactComponent as Honey } from "../../../assets/honey.svg";
 import { ReactComponent as Yeast } from "../../../assets/yeast.svg";
 import { Unit } from "../model/Unit";
 import { useTranslation } from "../../../hooks/useTranslation";
+import { useContext } from "react";
+import { AppContext } from "../../../context/AppContext";
 
 export const IngredientList: React.FC = () => {
   const { t } = useTranslation();
+  const context = useContext(AppContext)
 
   const flour = (
     <IngredientTile
