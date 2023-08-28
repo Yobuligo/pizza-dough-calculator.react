@@ -1,5 +1,12 @@
 {
     "title": "Pizza Dough Calculator",
+    "ingredients":{
+        "flour":"Flour",
+        "honey":"Honey",
+        "salt":"Salt",
+        "water":"Water",
+        "yeast":"Yeast"
+    },
     "parameters": {
         "numberOfPizzas": "Number pizzas",
         "weightOfDoughPiece": "Weight of dough piece",
@@ -12,13 +19,5 @@
         "yeastType": "Yeast type",
         "dryYeast": "Dry yeast",
         "freshYeast": "Fresh yeast"
-    },
-    "result": {
-        "totalMass": "Total mass",
-        "flour": "Flour",
-        "water": "Water",
-        "salt": "Salt",
-        "honey": "Honey",        
-        "grams": "Grams"
     }
 }

@@ -1,5 +1,12 @@
 {
     "title": "Pizzateig Rechner",
+    "ingredients":{
+        "flour":"Mehl",
+        "honey":"Honig",
+        "salt":"Salz",
+        "water":"Wasser",
+        "yeast":"Hefe"
+    },    
     "parameters": {
         "numberOfPizzas": "Anzahl Pizzen",
         "weightOfDoughPiece": "Gewicht Teigling",
@@ -12,13 +19,5 @@
         "yeastType": "Hefetyp",
         "dryYeast": "Trockenhefe",
         "freshYeast": "Frischhefe"
-    },
-    "result": {
-        "totalMass": "Gesamtmasse",
-        "flour": "Mehl",
-        "water": "Wasser",
-        "salt": "Salz",
-        "honey": "Honig",
-        "grams": "Gramm"
     }
 }

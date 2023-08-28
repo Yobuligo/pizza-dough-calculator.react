@@ -1,0 +1,25 @@
+.ingredientTile {
+  display: inline-block;
+  border-radius: 8px;
+  background-color: rgba(137, 43, 226, 0.199);
+  color: green;
+}
+
+.ingredientTileHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 0.25rem;
+}
+
+.ingredientTileImage {
+  width: 1.5rem;
+}
+
+.ingredientTileMain {
+  text-align: center;
+  margin: 0;
+  font-size: x-large;
+  font-weight: 600;
+  padding: 0.5rem 0;
+}
