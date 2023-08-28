@@ -1,10 +1,11 @@
 import MuiSwitch, { SwitchProps } from "@mui/material/Switch";
 import { alpha, styled } from "@mui/material/styles";
+import { ColorType } from "../../utils/color/ColorType";
+import { useColor } from "../../utils/color/useColor";
 
 export const Switch: React.FC<SwitchProps> = (props) => {
-  const computedStyle = getComputedStyle(document.body);
-  const primaryColor = computedStyle.getPropertyValue("--primaryColor");
-  const secondaryColor = computedStyle.getPropertyValue("--secondaryColor");
+  const primaryColor = useColor(ColorType.PRIMARY);
+  const secondaryColor = useColor(ColorType.SECONDARY);
 
   const ColouredSwitch = styled(MuiSwitch)(({ theme }) => ({
     "& .MuiSwitch-switchBase.Mui-checked": {
