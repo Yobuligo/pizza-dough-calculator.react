@@ -13,17 +13,9 @@ export const PreDoughConfiguration: React.FC = () => {
       <div className={styles.preDoughConfiguration}>
         <Switch
           id="preDough"
-          onChange={(_, checked) => {
-            console.log("Switched");
-            setPreDoughUsed(checked);
-          }}
+          onChange={(_, checked) => setPreDoughUsed(checked)}
         />
-        <input
-          id="preDoughPercentage"
-          type="number"
-          maxLength={3}
-          disabled={!preDoughUsed}
-        />
+        <input id="preDoughPercentage" type="number" disabled={!preDoughUsed} />
         <label className={styles.percentageLabel} htmlFor="preDoughPercentage">
           %
         </label>

@@ -1,29 +1,24 @@
 import MuiSwitch, { SwitchProps } from "@mui/material/Switch";
 import { alpha, styled } from "@mui/material/styles";
-import { ColorType } from "../../utils/color/ColorType";
-import { useColor } from "../../utils/color/useColor";
+
+const primaryColor = "#f3d396";
+const secondaryColor = "#c39a6e";
+
+const ColouredSwitch = styled(MuiSwitch)(({ theme }) => ({
+  "& .MuiSwitch-switchBase.Mui-checked": {
+    color: secondaryColor,
+    "&:hover": {
+      backgroundColor: alpha(secondaryColor, theme.palette.action.hoverOpacity),
+    },
+  },
+  "& .MuiSwitch-track": {
+    backgroundColor: primaryColor,
+  },
+  "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
+    backgroundColor: secondaryColor,
+  },
+}));
 
 export const Switch: React.FC<SwitchProps> = (props) => {
-  const primaryColor = useColor(ColorType.PRIMARY);
-  const secondaryColor = useColor(ColorType.SECONDARY);
-
-  const ColouredSwitch = styled(MuiSwitch)(({ theme }) => ({
-    "& .MuiSwitch-switchBase.Mui-checked": {
-      color: secondaryColor,
-      "&:hover": {
-        backgroundColor: alpha(
-          secondaryColor,
-          theme.palette.action.hoverOpacity
-        ),
-      },
-    },
-    "& .MuiSwitch-track": {
-      backgroundColor: primaryColor,
-    },
-    "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
-      backgroundColor: secondaryColor,
-    },
-  }));
-
-  return <ColouredSwitch id={props.id} />;
+  return <ColouredSwitch {...props} />;
 };
