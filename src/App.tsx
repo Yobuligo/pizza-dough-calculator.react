@@ -5,6 +5,7 @@ import { DashboardPage } from "./pages/DashboardPage";
 import { CalculatorWithPreDough } from "./services/calculator/calculatorWithPreDough/CalculatorWithPreDough";
 import { CalculatorWithoutPreDough } from "./services/calculator/calculatorWithoutPreDough/CalculatorWithoutPreDough";
 import { IDoughConfig } from "./types/IDoughConfig";
+import { IRecipeWithPreDough } from "./types/IRecipeWithPreDough";
 import { IRecipeWithoutPreDough } from "./types/IRecipeWithoutPreDough";
 import { RisingTimeType } from "./types/RisingTimeType";
 import { YeastType } from "./types/YeastType";
@@ -29,21 +30,20 @@ const App: React.FC = () => {
     yeast: 0,
   });
 
-  const recipeWithPreDough = useValue<IRecipeWithoutPreDough>({
-    flour: 0,
-    honey: 0,
-    salt: 0,
-    water: 0,
-    yeast: 0,
+  const recipeWithPreDough = useValue<IRecipeWithPreDough>({
+    dough: { flour: 0, salt: 0, water: 0 },
+    preDough: { flour: 0, honey: 0, water: 0, yeast: 0 },
   });
 
   useEffect(() => {
     if (doughConfig.value.usePreDough) {
-      CalculatorWithPreDough.calc(doughConfig.value);
+      const recipe = CalculatorWithPreDough.calc(doughConfig.value);
+      recipeWithPreDough.setValue(recipe);
     } else {
-      CalculatorWithoutPreDough.calc(doughConfig.value);
+      const recipe = CalculatorWithoutPreDough.calc(doughConfig.value);
+      recipeWithoutPreDough.setValue(recipe);
     }
-  }, [doughConfig.value]);
+  }, [doughConfig.value, recipeWithPreDough, recipeWithoutPreDough]);
 
   return (
     <AppContext.Provider
