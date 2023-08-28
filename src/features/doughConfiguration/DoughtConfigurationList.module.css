@@ -2,4 +2,5 @@
   margin: 0 1rem;
   border: 1px solid var(--secondaryColor);
   color: var(--secondaryColor);
+  background-color: var(--light);
 }

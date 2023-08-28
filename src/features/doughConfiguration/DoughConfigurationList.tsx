@@ -5,6 +5,7 @@ import { ConfigurationInputItem } from "./components/configuration/configuration
 import { PreDoughConfiguration } from "./preDoughConfiguration/PreDoughConfiguration";
 import { AppContext } from "../../context/AppContext";
 import { Unit } from "../ingredient/model/Unit";
+import { ConfigurationToggleButton } from "./components/configuration/configurationToggleButton/ConfigurationToggleButton";
 
 export const DoughConfigurationList: React.FC = () => {
   const { t } = useTranslation();
@@ -54,6 +55,10 @@ export const DoughConfigurationList: React.FC = () => {
           }}
         />
         <PreDoughConfiguration />
+        <ConfigurationToggleButton
+          configuration={{ name: t.parameters.risingTime }}
+          values={[t.parameters.short, t.parameters.long]}
+        />
       </fieldset>
     </div>
   );
