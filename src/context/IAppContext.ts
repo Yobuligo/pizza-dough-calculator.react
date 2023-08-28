@@ -1,4 +1,4 @@
-import { IDoughConfig } from "../types/IDoughConfig";
+import { IDoughConfig } from "../model/IDoughConfig";
 import { IRecipeWithPreDough } from "../types/IRecipeWithPreDough";
 import { IRecipeWithoutPreDough } from "../types/IRecipeWithoutPreDough";
 import { IValue } from "../types/IValue";
