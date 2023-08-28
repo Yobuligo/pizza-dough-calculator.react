@@ -1,6 +1,6 @@
 import { IHoneyCalculator } from "./IHoneyCalculator";
 
-export class HoneyCalculator implements IHoneyCalculator {
+class HoneyCalculatorDefault implements IHoneyCalculator {
   private honeyPer1000Grams = 5;
 
   calc(flour: number): number {
@@ -16,3 +16,5 @@ export class HoneyCalculator implements IHoneyCalculator {
     return (Math.floor((flour - 1) / 1000) + 1) * this.honeyPer1000Grams;
   }
 }
+
+export const HoneyCalculator = new HoneyCalculatorDefault();
