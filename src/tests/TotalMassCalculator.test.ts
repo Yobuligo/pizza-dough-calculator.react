@@ -3,7 +3,7 @@ import { RisingTimeType } from "../types/RisingTimeType";
 import { YeastType } from "../types/YeastType";
 
 describe("TotalMassCalculator", () => {
-  it("Check result from Excel", () => {
+  it("check result from Excel", () => {
     const totalMassResult = TotalMassCalculator.calc({
       hydration: 50,
       numberOfPizzas: 9,
