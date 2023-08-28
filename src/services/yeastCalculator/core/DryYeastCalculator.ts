@@ -1,8 +1,8 @@
-import { IYeastCalculator } from "./IYeastCalculator";
+import { YeastCalculator } from "./YeastCalculator";
 
-class DryYeastCalculatorDefault implements IYeastCalculator {
-  calc(flour: number): number {
-    throw new Error("Method not implemented.");
+class DryYeastCalculatorDefault extends YeastCalculator {
+  constructor() {
+    super(0.83, 71.42857143);
   }
 }
 
