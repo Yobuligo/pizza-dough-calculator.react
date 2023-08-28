@@ -1,11 +1,14 @@
 .preDoughConfiguration input {
   width: 3rem;
   border: 1px solid var(--secondaryColor);
+  color: var(--secondaryColor);
+  font-weight: 600;
 }
 
 .preDoughConfiguration input:disabled {
   background-color: var(--light);
-  border-color: var(--primaryColor)
+  border-color: var(--primaryColor);
+  color: var(--primaryColor);
 }
 
 .percentageLabel {
