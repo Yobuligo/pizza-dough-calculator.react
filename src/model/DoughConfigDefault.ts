@@ -8,7 +8,7 @@ export const DoughConfigDefault: IDoughConfig = {
   percentPreDough: 30,
   risingTime: RisingTimeType.LONG,
   salt: 3.8,
-  usePreDough: true,
+  usePreDough: false,
   weightOfDoughPiece: 280,
   yeastType: YeastType.FRESH,
 };

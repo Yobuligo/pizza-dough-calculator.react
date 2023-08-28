@@ -1,28 +1,37 @@
-import { IngredientTile } from "../ingredientTile/IngredientTile";
-import styles from "./IngredientList.module.css";
+import { useContext } from "react";
 import { ReactComponent as Flour } from "../../../assets/grain.svg";
+import { ReactComponent as Honey } from "../../../assets/honey.svg";
 import { ReactComponent as Salt } from "../../../assets/salt.svg";
 import { ReactComponent as Water } from "../../../assets/water.svg";
-import { ReactComponent as Honey } from "../../../assets/honey.svg";
 import { ReactComponent as Yeast } from "../../../assets/yeast.svg";
-import { Unit } from "../model/Unit";
-import { useTranslation } from "../../../hooks/useTranslation";
-import { useContext } from "react";
 import { AppContext } from "../../../context/AppContext";
+import { useTranslation } from "../../../hooks/useTranslation";
+import { IngredientTile } from "../ingredientTile/IngredientTile";
+import { Unit } from "../model/Unit";
+import styles from "./IngredientList.module.css";
 
 export const IngredientList: React.FC = () => {
   const { t } = useTranslation();
-  const context = useContext(AppContext)
+  const context = useContext(AppContext);
+  const recipe = context.recipeWithoutPreDough.value;
 
   const flour = (
     <IngredientTile
-      ingredient={{ name: t.ingredients.flour, amount: 1600, unit: Unit.GRAMS }}
+      ingredient={{
+        name: t.ingredients.flour,
+        amount: recipe.flour,
+        unit: Unit.GRAMS,
+      }}
       image={(className) => <Flour className={className} />}
     />
   );
   const salt = (
     <IngredientTile
-      ingredient={{ name: t.ingredients.salt, amount: 63, unit: Unit.GRAMS }}
+      ingredient={{
+        name: t.ingredients.salt,
+        amount: recipe.salt,
+        unit: Unit.GRAMS,
+      }}
       image={(className) => <Salt className={className} />}
     />
   );
@@ -30,7 +39,7 @@ export const IngredientList: React.FC = () => {
     <IngredientTile
       ingredient={{
         name: t.ingredients.water,
-        amount: 250,
+        amount: recipe.water,
         unit: Unit.MILLILITER,
       }}
       image={(className) => <Water className={className} />}
@@ -40,7 +49,7 @@ export const IngredientList: React.FC = () => {
     <IngredientTile
       ingredient={{
         name: t.ingredients.honey,
-        amount: 50,
+        amount: recipe.honey,
         unit: Unit.MILLILITER,
       }}
       image={(className) => <Honey className={className} />}
@@ -48,7 +57,11 @@ export const IngredientList: React.FC = () => {
   );
   const yeast = (
     <IngredientTile
-      ingredient={{ name: t.ingredients.yeast, amount: 5, unit: Unit.GRAMS }}
+      ingredient={{
+        name: t.ingredients.yeast,
+        amount: recipe.yeast,
+        unit: Unit.GRAMS,
+      }}
       image={(className) => <Yeast className={className} />}
     />
   );
