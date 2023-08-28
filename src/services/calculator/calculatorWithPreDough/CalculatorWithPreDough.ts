@@ -1,4 +1,4 @@
-import { ICalculator } from "../ICalculator";
+import { ICalculator } from "../core/ICalculator";
 import { IParameterWithPreDough } from "./IParameterWithPreDough";
 import { IResultWithPreDough } from "./IResultWithPreDough";
 

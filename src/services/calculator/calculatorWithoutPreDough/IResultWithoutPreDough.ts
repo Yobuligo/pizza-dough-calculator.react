@@ -1,4 +1,4 @@
-export interface IResult {
+export interface IResultWithoutPreDough {
   flour: number;
   honey: number;
   salt: number;
