@@ -3,7 +3,7 @@ import { ICalculator } from "../core/ICalculator";
 import { IParameterWithPreDough } from "./IParameterWithPreDough";
 import { IResultWithPreDough } from "./IResultWithPreDough";
 
-export class CalculatorWithPreDough
+class CalculatorWithPreDoughDefault
   implements ICalculator<IParameterWithPreDough, IResultWithPreDough>
 {
   calc(parameter: IParameterWithPreDough): IResultWithPreDough {
@@ -40,3 +40,5 @@ export class CalculatorWithPreDough
     };
   }
 }
+
+export const CalculatorWithPreDough = new CalculatorWithPreDoughDefault();
