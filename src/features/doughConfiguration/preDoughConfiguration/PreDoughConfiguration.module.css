@@ -1,0 +1,8 @@
+.preDoughConfiguration input {
+  width: 2rem;
+  border: 1px solid var(--secondaryColor);
+}
+
+.percentageLabel {
+  margin-left: 0.2rem;
+}

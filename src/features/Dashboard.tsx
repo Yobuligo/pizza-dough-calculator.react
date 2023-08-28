@@ -1,24 +1,22 @@
 import { useTranslation } from "../hooks/useTranslation";
-import { IngredientTile } from "./ingredientTile/IngredientTile";
+import { DoughConfigurationList } from "./doughConfiguration/DoughConfigurationList";
+import { IngredientList } from "./ingredientList/IngredientList";
+// import { IngredientTile } from "./ingredientTile/IngredientTile";
 
-import { ReactComponent as Grain } from "../assets/grain.svg";
-import { ReactComponent as Honey } from "../assets/honey.svg";
-import { ReactComponent as Salt } from "../assets/salt.svg";
-import { ReactComponent as Water } from "../assets/water.svg";
-import { ReactComponent as Yeast } from "../assets/yeast.svg";
+// import { ReactComponent as Grain } from "../assets/grain.svg";
+// import { ReactComponent as Honey } from "../assets/honey.svg";
+// import { ReactComponent as Salt } from "../assets/salt.svg";
+// import { ReactComponent as Water } from "../assets/water.svg";
+// import { ReactComponent as Yeast } from "../assets/yeast.svg";
 
 export const Dashboard: React.FC = () => {
   const { t } = useTranslation();
 
-  const props = {
-    width: "2rem",
-    fill: "red",
-    stroke: "red"
-  };
-
   return (
     <>
-      <IngredientTile
+      <IngredientList />
+      <DoughConfigurationList />
+      {/* <IngredientTile
         amount={16000}
         image={<Grain {...props} />}
         title={t.ingredients.water}
@@ -46,7 +44,7 @@ export const Dashboard: React.FC = () => {
         amount={16000}
         image={<Yeast {...props} />}
         title={t.ingredients.yeast}
-      />
+      /> */}
     </>
   );
 };

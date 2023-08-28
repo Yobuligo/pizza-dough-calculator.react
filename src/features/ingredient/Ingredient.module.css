@@ -1,0 +1,42 @@
+.ingredient {
+  display: inline-block;
+  width: 5rem;
+  font-size: small;
+  font-weight: 600;
+  box-shadow: 1px 1px 1px 1px var(--primaryColor);
+  border-radius: 3px;
+  padding: 0 0.5rem;
+  background-color: var(--light);
+}
+
+.ingredientTile {
+  display: grid;
+  grid-template-columns: auto 2fr;
+  grid-template-rows: 0.5fr 1fr;
+  column-gap: 0.5rem;
+}
+
+.image {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  align-self: center;
+  height: 1.5rem;
+}
+
+.ingredientTitle {
+  display: inline-block;
+  padding: 0.4rem 0.2rem 0.2rem 0.2rem;
+  border-bottom: 1px solid var(--secondaryColor);
+  font-size: smaller;
+  align-self: flex-end;
+  color: var(--secondaryColor);
+}
+
+.ingredientAmount {
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: var(--secondaryColor);
+  padding: 0.3rem 0;
+  justify-self: end;
+  align-self: center;
+}
