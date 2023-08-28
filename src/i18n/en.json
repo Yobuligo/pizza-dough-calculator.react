@@ -8,10 +8,11 @@
         "yeast": "Yeast"
     },
     "parameters": {
+        "title": "Configure your dough",
         "numberOfPizzas": "Number pizzas",
         "weightOfDoughPiece": "Weight of dough piece",
         "hydration": "Hydration",
-        "amountPreDough": "Amount pre dough",
+        "preparePreDough": "Prepare pre dough",
         "risingTime": "Rising time",
         "short": "Short",
         "long": "Long",

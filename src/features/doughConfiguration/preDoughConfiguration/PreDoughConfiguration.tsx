@@ -1,17 +1,22 @@
-import styles from "./PreDoughConfiguration.module.css";
-import { ConfigurationItem } from "../components/configuration/ConfigurationItem";
-import { Switch } from "../../../components/switch/Switch";
 import { useState } from "react";
+import { Switch } from "../../../components/switch/Switch";
+import { useTranslation } from "../../../hooks/useTranslation";
+import { ConfigurationItem } from "../components/configuration/ConfigurationItem";
+import styles from "./PreDoughConfiguration.module.css";
 
 export const PreDoughConfiguration: React.FC = () => {
   const [preDoughUsed, setPreDoughUsed] = useState(false);
+  const { t } = useTranslation();
 
   return (
-    <ConfigurationItem configuration={{ name: "Prepare pre dough" }}>
+    <ConfigurationItem configuration={{ name: t.parameters.preparePreDough }}>
       <div className={styles.preDoughConfiguration}>
         <Switch
           id="preDough"
-          onChange={(_: any, checked: boolean) => setPreDoughUsed(checked)}
+          onChange={(_, checked) => {
+            console.log("Switched");
+            setPreDoughUsed(checked);
+          }}
         />
         <input
           id="preDoughPercentage"

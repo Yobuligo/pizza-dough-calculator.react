@@ -1,17 +1,18 @@
 {
     "title": "Pizzateig Rechner",
-    "ingredients":{
-        "flour":"Mehl",
-        "honey":"Honig",
-        "salt":"Salz",
-        "water":"Wasser",
-        "yeast":"Hefe"
-    },    
+    "ingredients": {
+        "flour": "Mehl",
+        "honey": "Honig",
+        "salt": "Salz",
+        "water": "Wasser",
+        "yeast": "Hefe"
+    },
     "parameters": {
+        "title": "Konfiguriere deinen Teig",
         "numberOfPizzas": "Anzahl Pizzen",
         "weightOfDoughPiece": "Gewicht Teigling",
         "hydration": "Hydration",
-        "amountPreDough": "Menge Vorteig",
+        "preparePreDough": "Vorteig vorbereiten",
         "risingTime": "Gehzeit",
         "short": "Kurz",
         "long": "Lang",
