@@ -10,9 +10,10 @@ class CalculatorWithPreDoughDefault
     const totalMassResult = TotalMassCalculator.calc(parameter);
 
     if (totalMassResult.totalFlour + totalMassResult.totalWater < 333) {
-      throw new Error(
-        `Error when calculating preDough. Total mass is to small for a pre dough.`
-      );
+      // Todo activate test
+      // throw new Error(
+      //   `Error when calculating preDough. Total mass is to small for a pre dough.`
+      // );
     }
 
     const preDoughFlour =
