@@ -9,7 +9,7 @@
     },
     "parameters": {
         "title": "Configure your dough",
-        "numberOfPizzas": "Number pizzas",
+        "numberOfPizzas": "Number of pizzas",
         "weightOfDoughPiece": "Weight of dough piece",
         "hydration": "Hydration",
         "preparePreDough": "Prepare pre dough",

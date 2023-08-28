@@ -1,47 +1,53 @@
 import { useContext, useEffect, useState } from "react";
 import { Switch } from "../../../components/switch/Switch";
+import { AppContext } from "../../../context/AppContext";
 import { useTranslation } from "../../../hooks/useTranslation";
 import { ConfigurationItem } from "../components/configuration/ConfigurationItem";
 import styles from "./PreDoughConfiguration.module.css";
-import { AppContext } from "../../../context/AppContext";
 
 export const PreDoughConfiguration: React.FC = () => {
   const { t } = useTranslation();
   const context = useContext(AppContext);
-  const [preDoughUsed, setPreDoughUsed] = useState(context.usePreDough.value);
+  const [usePreDough, setUsePreDough] = useState(
+    context.doughConfig.value.usePreDough
+  );
 
-  const validateAndSetAmountPreDough = (amount: number) => {
-    let newAmount = 0;
-    if (amount > 100) {
-      newAmount = 100;
-    } else if (amount < 0) {
-      newAmount = 0;
+  const validateAndSetAmountPreDough = (percentPreDough: number) => {
+    let newPercentPreDough = 0;
+    if (percentPreDough > 100) {
+      newPercentPreDough = 100;
+    } else if (percentPreDough < 0) {
+      newPercentPreDough = 0;
     } else {
-      newAmount = amount;
+      newPercentPreDough = percentPreDough;
     }
-    context.amountPreDough.setValue(newAmount);
+    context.doughConfig.setValue((previous) => {
+      return { ...previous, percentPreDough: newPercentPreDough };
+    });
   };
 
   useEffect(() => {
-    context.usePreDough.setValue(preDoughUsed);
+    context.doughConfig.setValue((previous) => {
+      return { ...previous, usePreDough };
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [preDoughUsed]);
+  }, [usePreDough]);
 
   return (
     <ConfigurationItem configuration={{ name: t.parameters.preparePreDough }}>
       <div className={styles.preDoughConfiguration}>
         <Switch
           id="preDough"
-          onChange={(_, checked) => setPreDoughUsed(checked)}
+          onChange={(_, checked) => setUsePreDough(checked)}
         />
         <input
           id="preDoughPercentage"
           type="number"
-          disabled={!preDoughUsed}
+          disabled={!usePreDough}
           onChange={(event) =>
             validateAndSetAmountPreDough(+event.target.value)
           }
-          value={context.amountPreDough.value}
+          value={context.doughConfig.value.percentPreDough}
         />
         <label className={styles.percentageLabel} htmlFor="preDoughPercentage">
           %
