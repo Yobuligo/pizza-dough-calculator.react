@@ -8,6 +8,7 @@ import { CalculatorWithoutPreDough } from "./services/calculator/calculatorWitho
 import { IRecipeWithPreDough } from "./types/IRecipeWithPreDough";
 import { IRecipeWithoutPreDough } from "./types/IRecipeWithoutPreDough";
 import { readDoughConfig } from "./utils/readDoughConfig";
+import { writeDoughConfig } from "./utils/writeDoughConfig";
 
 const App: React.FC = () => {
   const doughConfig = useValue<IDoughConfig>(readDoughConfig());
@@ -39,6 +40,8 @@ const App: React.FC = () => {
   useEffect(() => {
     reCalcRecipe();
   }, [reCalcRecipe]);
+
+  useEffect(() => writeDoughConfig(doughConfig.value), [doughConfig.value]);
 
   return (
     <AppContext.Provider
