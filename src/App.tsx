@@ -5,7 +5,7 @@ import { DashboardPage } from "./pages/DashboardPage";
 import { CalculatorWithPreDough } from "./services/calculator/calculatorWithPreDough/CalculatorWithPreDough";
 import { CalculatorWithoutPreDough } from "./services/calculator/calculatorWithoutPreDough/CalculatorWithoutPreDough";
 import { IDoughConfig } from "./types/IDoughConfig";
-import { IRecipe } from "./types/IRecipe";
+import { IRecipeWithoutPreDough } from "./types/IRecipeWithoutPreDough";
 import { RisingTimeType } from "./types/RisingTimeType";
 import { YeastType } from "./types/YeastType";
 
@@ -21,7 +21,7 @@ const App: React.FC = () => {
     yeastType: YeastType.FRESH,
   });
 
-  const recipeWithoutPreDough = useValue<IRecipe>({
+  const recipeWithoutPreDough = useValue<IRecipeWithoutPreDough>({
     flour: 0,
     honey: 0,
     salt: 0,
@@ -29,7 +29,7 @@ const App: React.FC = () => {
     yeast: 0,
   });
 
-  const recipeWithPreDough = useValue<IRecipe>({
+  const recipeWithPreDough = useValue<IRecipeWithoutPreDough>({
     flour: 0,
     honey: 0,
     salt: 0,

@@ -1,12 +1,12 @@
+import { IRecipeWithoutPreDough } from "../../../types/IRecipeWithoutPreDough";
 import { TotalMassCalculator } from "../../totalMassCalculator/TotalMassCalculator";
 import { ICalculator } from "../core/ICalculator";
 import { IParameter } from "./IParameter";
-import { IResultWithoutPreDough } from "./IResultWithoutPreDough";
 
 class CalculatorWithoutPreDoughDefault
-  implements ICalculator<IParameter, IResultWithoutPreDough>
+  implements ICalculator<IParameter, IRecipeWithoutPreDough>
 {
-  calc(parameter: IParameter): IResultWithoutPreDough {
+  calc(parameter: IParameter): IRecipeWithoutPreDough {
     const totalMassResult = TotalMassCalculator.calc(parameter);
     return {
       flour: totalMassResult.totalFlour,

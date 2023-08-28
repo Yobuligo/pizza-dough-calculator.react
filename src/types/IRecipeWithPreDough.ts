@@ -1,4 +1,4 @@
-export interface IResultWithPreDough {
+export interface IRecipeWithPreDough {
   preDough: {
     flour: number;
     honey: number;
