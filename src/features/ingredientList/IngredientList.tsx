@@ -1,4 +1,4 @@
-import { Ingredient } from "../ingredient/Ingredient";
+import { IngredientTile } from "../ingredientTile/IngredientTile";
 import styles from "./IngredientList.module.css";
 import { ReactComponent as Flour } from "../../assets/grain.svg";
 import { ReactComponent as Salt } from "../../assets/salt.svg";
@@ -8,35 +8,35 @@ import { ReactComponent as Yeast } from "../../assets/yeast.svg";
 
 export const IngredientList: React.FC = () => {
   const flour = (
-    <Ingredient
+    <IngredientTile
       name="Flour"
       amount="1600g"
       image={(className) => <Flour className={className} />}
     />
   );
   const salt = (
-    <Ingredient
+    <IngredientTile
       name="Salt"
       amount="63g"
       image={(className) => <Salt className={className} />}
     />
   );
   const water = (
-    <Ingredient
+    <IngredientTile
       name="Water"
       amount="250ml"
       image={(className) => <Water className={className} />}
     />
   );
   const honey = (
-    <Ingredient
+    <IngredientTile
       name="Honey"
       amount="50ml"
       image={(className) => <Honey className={className} />}
     />
   );
   const yeast = (
-    <Ingredient
+    <IngredientTile
       name="Yeast"
       amount="5g"
       image={(className) => <Yeast className={className} />}

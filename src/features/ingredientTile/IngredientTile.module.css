@@ -1,4 +1,4 @@
-.ingredient {
+.ingredientTile {
   display: inline-block;
   width: 5rem;
   font-size: small;
@@ -9,7 +9,7 @@
   background-color: var(--light);
 }
 
-.ingredientTile {
+.ingredientGrid {
   display: grid;
   grid-template-columns: auto 2fr;
   grid-template-rows: 0.5fr 1fr;
