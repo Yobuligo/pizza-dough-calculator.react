@@ -6,9 +6,21 @@ import styles from "./PreDoughConfiguration.module.css";
 import { AppContext } from "../../../context/AppContext";
 
 export const PreDoughConfiguration: React.FC = () => {
-  const [preDoughUsed, setPreDoughUsed] = useState(false);
   const { t } = useTranslation();
   const context = useContext(AppContext);
+  const [preDoughUsed, setPreDoughUsed] = useState(context.usePreDough.value);
+
+  const validateAndSetAmountPreDough = (amount: number) => {
+    let newAmount = 0;
+    if (amount > 100) {
+      newAmount = 100;
+    } else if (amount < 0) {
+      newAmount = 0;
+    } else {
+      newAmount = amount;
+    }
+    context.amountPreDough.setValue(newAmount);
+  };
 
   useEffect(() => {
     context.usePreDough.setValue(preDoughUsed);
@@ -27,8 +39,9 @@ export const PreDoughConfiguration: React.FC = () => {
           type="number"
           disabled={!preDoughUsed}
           onChange={(event) =>
-            context.amountPreDough.setValue(+event.target.value)
+            validateAndSetAmountPreDough(+event.target.value)
           }
+          value={context.amountPreDough.value}
         />
         <label className={styles.percentageLabel} htmlFor="preDoughPercentage">
           %
