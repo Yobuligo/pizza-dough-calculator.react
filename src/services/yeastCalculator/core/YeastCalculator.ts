@@ -11,9 +11,11 @@ export abstract class YeastCalculator implements IYeastCalculator {
   calc(flour: number, risingTime: RisingTimeType): number {
     switch (risingTime) {
       case RisingTimeType.LONG:
-        return (Math.floor(flour - 1 / 500) + 1) * this.yeastPer500Grams;
+        const first = Math.floor((flour - 1) / 500) + 1;
+        const second = first * this.yeastPer500Grams;
+        return second;
       case RisingTimeType.SHORT:
-        return (Math.round(flour / 500) * 500) / this.factor;
+        return Math.round((Math.round(flour / 500) * 500) / this.factor);
       default:
         throw new Error(
           `Error while calculating amount yeast. Rising time '${risingTime}' is not supported.`
