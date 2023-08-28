@@ -1,25 +1,17 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { AppContext } from "./context/AppContext";
 import { useValue } from "./hooks/useValue";
+import { IDoughConfig } from "./model/IDoughConfig";
 import { DashboardPage } from "./pages/DashboardPage";
 import { CalculatorWithPreDough } from "./services/calculator/calculatorWithPreDough/CalculatorWithPreDough";
 import { CalculatorWithoutPreDough } from "./services/calculator/calculatorWithoutPreDough/CalculatorWithoutPreDough";
-import { IDoughConfig } from "./types/IDoughConfig";
+import { IRecipeWithPreDough } from "./types/IRecipeWithPreDough";
 import { IRecipeWithoutPreDough } from "./types/IRecipeWithoutPreDough";
-import { RisingTimeType } from "./types/RisingTimeType";
-import { YeastType } from "./types/YeastType";
+import { readDoughConfig } from "./utils/readDoughConfig";
+import { writeDoughConfig } from "./utils/writeDoughConfig";
 
 const App: React.FC = () => {
-  const doughConfig = useValue<IDoughConfig>({
-    hydration: 0,
-    numberOfPizzas: 0,
-    percentPreDough: 0,
-    risingTime: RisingTimeType.LONG,
-    salt: 0,
-    usePreDough: false,
-    weightOfDoughPiece: 0,
-    yeastType: YeastType.FRESH,
-  });
+  const doughConfig = useValue<IDoughConfig>(readDoughConfig());
 
   const recipeWithoutPreDough = useValue<IRecipeWithoutPreDough>({
     flour: 0,
@@ -29,21 +21,27 @@ const App: React.FC = () => {
     yeast: 0,
   });
 
-  const recipeWithPreDough = useValue<IRecipeWithoutPreDough>({
-    flour: 0,
-    honey: 0,
-    salt: 0,
-    water: 0,
-    yeast: 0,
+  const recipeWithPreDough = useValue<IRecipeWithPreDough>({
+    dough: { flour: 0, salt: 0, water: 0 },
+    preDough: { flour: 0, honey: 0, water: 0, yeast: 0 },
   });
 
-  useEffect(() => {
+  const reCalcRecipe = useCallback(() => {
     if (doughConfig.value.usePreDough) {
-      CalculatorWithPreDough.calc(doughConfig.value);
+      const recipe = CalculatorWithPreDough.calc(doughConfig.value);
+      recipeWithPreDough.setValue(recipe);
     } else {
-      CalculatorWithoutPreDough.calc(doughConfig.value);
+      const recipe = CalculatorWithoutPreDough.calc(doughConfig.value);
+      recipeWithoutPreDough.setValue(recipe);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doughConfig.value]);
+
+  useEffect(() => {
+    reCalcRecipe();
+  }, [reCalcRecipe]);
+
+  useEffect(() => writeDoughConfig(doughConfig.value), [doughConfig.value]);
 
   return (
     <AppContext.Provider
