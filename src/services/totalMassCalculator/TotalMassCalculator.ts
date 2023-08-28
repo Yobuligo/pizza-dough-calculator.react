@@ -15,25 +15,30 @@ class TotalMassCalculatorDefault implements ITotalMassCalculator {
 
     const hydrationPerSumWeightOfDoughPiece = sumWeightOfDoughPiece / hydration;
 
-    const totalWithoutSalt =
+    const totalWithoutSalt = Math.round(
       hydrationPerSumWeightOfDoughPiece +
-      hydrationPerSumWeightOfDoughPiece * (parameter.hydration / 100) -
-      (hydrationPerSumWeightOfDoughPiece / 100) * parameter.salt;
+        hydrationPerSumWeightOfDoughPiece * (parameter.hydration / 100) -
+        (hydrationPerSumWeightOfDoughPiece / 100) * parameter.salt
+    );
 
-    const totalFlour = totalWithoutSalt / hydration;
+    const totalFlour = Math.round(totalWithoutSalt / hydration);
 
-    const totalWater = (totalFlour * parameter.hydration) / 100;
+    const totalWater = Math.round((totalFlour * parameter.hydration) / 100);
 
-    const totalHoney = HoneyCalculator.calc(totalFlour);
+    const totalHoney = Math.round(HoneyCalculator.calc(totalFlour));
 
-    const totalYeast = yeastCalculator.calc(totalFlour, parameter.risingTime);
+    const totalYeast = Math.round(
+      yeastCalculator.calc(totalFlour, parameter.risingTime)
+    );
 
-    const totalWithoutSaltYeastHoney =
-      totalWithoutSalt - totalHoney - totalYeast;
+    const totalWithoutSaltYeastHoney = Math.round(
+      totalWithoutSalt - totalHoney - totalYeast
+    );
 
-    const totalSalt =
+    const totalSalt = Math.round(
       ((hydrationPerSumWeightOfDoughPiece - totalHoney - totalYeast) / 100) *
-      parameter.salt;
+        parameter.salt
+    );
 
     return {
       totalFlour,
