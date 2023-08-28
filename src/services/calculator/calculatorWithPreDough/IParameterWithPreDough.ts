@@ -1,5 +1,5 @@
-import { IParameterWithoutPreDough } from "../calculatorWithoutPreDough/IParameterWithoutPreDough";
+import { IParameter } from "../calculatorWithoutPreDough/IParameter";
 
-export interface IParameterWithPreDough extends IParameterWithoutPreDough {
+export interface IParameterWithPreDough extends IParameter {
   amountPreDough: number;
 }
