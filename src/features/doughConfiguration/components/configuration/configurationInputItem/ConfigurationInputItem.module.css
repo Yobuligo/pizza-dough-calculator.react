@@ -6,7 +6,8 @@
   width: 4rem;
   border: 1px solid var(--secondaryColor);
   color: var(--secondaryColor);
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
 .unit {

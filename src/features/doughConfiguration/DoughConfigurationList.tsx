@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useTranslation } from "../../hooks/useTranslation";
 import styles from "./DoughConfigurationList.module.css";
 import { ConfigurationInputItem } from "./components/configuration/configurationInputItem/ConfigurationInputItem";
-import { PreDoughConfiguration } from "./preDoughConfiguration/PreDoughConfiguration";
+import { PreDoughConfigurationItem } from "./preDoughConfiguration/PreDoughConfigurationItem";
 import { AppContext } from "../../context/AppContext";
 import { Unit } from "../ingredient/model/Unit";
 import { ConfigurationToggleButton } from "./components/configuration/configurationToggleButton/ConfigurationToggleButton";
@@ -55,7 +55,7 @@ export const DoughConfigurationList: React.FC = () => {
             });
           }}
         />
-        <PreDoughConfiguration />
+        <PreDoughConfigurationItem />
         <ConfigurationToggleButton
           configuration={{ name: t.parameters.risingTime }}
           values={[t.parameters.short, t.parameters.long]}

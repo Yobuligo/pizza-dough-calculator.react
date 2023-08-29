@@ -9,8 +9,9 @@
 }
 
 .switch {
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   --switchWidth: 3rem;
   --switchColorOff: var(--light);
-  --switchColorOn: var(--secondaryColor);
+  /* --switchColorOn: var(--secondaryColor); */
+  --switchColorOn: var(--accentColor);
 }

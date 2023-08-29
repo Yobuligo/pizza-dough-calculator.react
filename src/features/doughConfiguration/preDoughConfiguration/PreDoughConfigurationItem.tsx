@@ -4,9 +4,9 @@ import { AppContext } from "../../../context/AppContext";
 import { useTranslation } from "../../../hooks/useTranslation";
 import { Unit } from "../../ingredient/model/Unit";
 import { ConfigurationInputItem } from "../components/configuration/configurationInputItem/ConfigurationInputItem";
-import styles from "./PreDoughConfiguration.module.css";
+import styles from "./PreDoughConfigurationItem.module.css";
 
-export const PreDoughConfiguration: React.FC = () => {
+export const PreDoughConfigurationItem: React.FC = () => {
   const { t } = useTranslation();
   const context = useContext(AppContext);
   const [usePreDough, setUsePreDough] = useState(
