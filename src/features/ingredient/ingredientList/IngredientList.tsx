@@ -11,7 +11,9 @@ import styles from "./IngredientList.module.css";
 export const IngredientList: React.FC = () => {
   const { t } = useTranslation();
   const context = useContext(AppContext);
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(
+    context.doughConfig.value.selectedDoughType
+  );
 
   let content;
   if (context.doughConfig.value.usePreDough) {
@@ -29,7 +31,12 @@ export const IngredientList: React.FC = () => {
       <header className={styles.ingredientListHeader}>
         <ToggleButtonGroup
           disabled={!context.doughConfig.value.usePreDough}
-          onSelected={(index) => setSelected(index)}
+          onSelected={(index) => {
+            setSelected(index);
+            context.doughConfig.setValue((previous) => {
+              return { ...previous, selectedDoughType: index };
+            });
+          }}
           selected={selected}
         >
           <ToggleButton
