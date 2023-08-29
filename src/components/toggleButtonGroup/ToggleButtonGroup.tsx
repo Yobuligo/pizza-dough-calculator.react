@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { style } from "../../utils/style";
-import styles from "./IToggleButtonGroup.module.css";
+import styles from "./ToggleButtonGroup.module.css";
 import { IToggleButtonGroupProps } from "./IToggleButtonGroupProps";
 
 export const ToggleButtonGroup: React.FC<IToggleButtonGroupProps> = (props) => {
