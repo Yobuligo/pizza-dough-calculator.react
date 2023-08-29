@@ -1,10 +1,16 @@
 import { ISwitchProps } from "./ISwitchProps";
 import styles from "./Switch.module.css";
-import { CSSProperties, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 
 export const Switch: React.FC<ISwitchProps> = (props) => {
-  const [isChecked, setIsChecked] = useState(props.checked);
+  const [isChecked, setIsChecked] = useState(props.checked ?? false);
   let style: CSSProperties = {};
+
+  useEffect(() => {
+    if (props.checked !== undefined && props.checked !== null) {
+      setIsChecked(props.checked);
+    }
+  }, [props.checked]);
 
   const addCSSProperties = (cssProperties: CSSProperties) => {
     style = { ...style, ...cssProperties } as CSSProperties;
@@ -14,13 +20,13 @@ export const Switch: React.FC<ISwitchProps> = (props) => {
     addCSSProperties({ "--switchWidth": props.width } as CSSProperties);
   props.sliderColor &&
     addCSSProperties({ "--sliderColor": props.sliderColor } as CSSProperties);
-  props.switchColorOff &&
+  props.colorOffState &&
     addCSSProperties({
-      "--switchColorOff": props.switchColorOff,
+      "--colorOffState": props.colorOffState,
     } as CSSProperties);
-  props.switchColorOn &&
+  props.colorOnState &&
     addCSSProperties({
-      "--switchColorOn": props.switchColorOn,
+      "--colorOnState": props.colorOnState,
     } as CSSProperties);
 
   return (
@@ -30,7 +36,7 @@ export const Switch: React.FC<ISwitchProps> = (props) => {
         type="checkbox"
         onChange={(event) => {
           setIsChecked(event.target.checked);
-          props.onChange(event.target.checked);
+          props.onChange?.(event.target.checked);
         }}
         checked={isChecked}
       />

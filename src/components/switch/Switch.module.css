@@ -1,9 +1,10 @@
 label {
   --switchWidth: 2rem;
-  --switchColorOff: #ccc;
-  --switchColorOn: #2196f3;
+  --colorOffState: #ccc;
+  --colorOnState: #2196f3;
   --sliderColor: white;
 }
+
 .switch {
   --switchHeight: calc(var(--switchWidth) / 2);
   --sliderSize: calc(var(--switchWidth) * 0.425);
@@ -28,7 +29,7 @@ label {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--switchColorOff);
+  background-color: var(--colorOffState);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -46,11 +47,11 @@ label {
 }
 
 .checkbox:checked + .slider {
-  background-color: var(--switchColorOn);
+  background-color: var(--colorOnState);
 }
 
 .checkbox:focus + .slider {
-  box-shadow: 0 0 1px var(--switchColorOn);
+  box-shadow: 0 0 1px var(--colorOnState);
 }
 
 .checkbox:checked + .slider:before {
