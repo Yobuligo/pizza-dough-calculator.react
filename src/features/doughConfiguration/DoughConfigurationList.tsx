@@ -60,7 +60,7 @@ export const DoughConfigurationList: React.FC = () => {
           configuration={{ name: t.parameters.risingTime }}
           values={[t.parameters.short, t.parameters.long]}
         />
-      </fieldset>
+      </fieldset>          
     </div>
   );
 };
