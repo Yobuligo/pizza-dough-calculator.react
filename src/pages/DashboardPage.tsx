@@ -1,5 +1,11 @@
-import { Dashboard } from "../features/Dashboard";
+import { DoughConfigurationList } from "../features/doughConfiguration/DoughConfigurationList";
+import { IngredientList } from "../features/ingredient/ingredientList/IngredientList";
 
 export const DashboardPage: React.FC = () => {
-  return <Dashboard />;
+  return (
+    <>
+      <IngredientList />
+      <DoughConfigurationList />
+    </>
+  );
 };
