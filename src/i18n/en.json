@@ -18,7 +18,7 @@
         "short": "Short",
         "long": "Long",
         "yeastType": "Yeast type",
-        "dryYeast": "Dry yeast",
-        "freshYeast": "Fresh yeast"
+        "dryYeast": "Dry",
+        "freshYeast": "Fresh"
     }
 }

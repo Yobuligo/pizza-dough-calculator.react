@@ -1,8 +1,8 @@
 .toggleButton {
   border: 1px solid var(--primaryColor);
-  color: var(--secondaryColor);
-  font-size: large;
-  padding: 0.5rem 1rem;
+  font-size: medium;
+  font-weight: 600;
+  padding: 0.25rem 1rem;
 }
 
 .toggleButton:hover {
@@ -11,8 +11,10 @@
 
 .toggleButtonSelected {
   background-color: var(--light);
+  color: var(--secondaryColor);
 }
 
 .toggleButtonUnselected {
   background-color: white;
+  color: var(--secondaryColor);
 }

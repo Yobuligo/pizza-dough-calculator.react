@@ -60,6 +60,10 @@ export const DoughConfigurationList: React.FC = () => {
           configuration={{ name: t.parameters.risingTime }}
           values={[t.parameters.short, t.parameters.long]}
         />
+        <ConfigurationToggleButton
+          configuration={{ name: t.parameters.yeastType }}
+          values={[t.parameters.dryYeast, t.parameters.freshYeast]}
+        />        
       </fieldset>          
     </div>
   );
