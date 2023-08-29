@@ -7,7 +7,11 @@ export const ConfigurationItem: React.FC<IConfigurationProps> = (props) => {
       <label htmlFor={props.configuration.name}>
         {props.configuration.name}
       </label>
-      <div className={styles.configurationChangeElement}>{props.children}</div>
+      <div
+        className={`${styles.configurationChangeElement} ${props.className}`}
+      >
+        {props.children}
+      </div>
     </div>
   );
 };

@@ -17,14 +17,19 @@ export function ConfigurationInputItem<T>(
   };
 
   return (
-    <ConfigurationItem configuration={props.configuration}>
-        <input
-          type={getTypeByInitialValue(props.initialValue)}
-          onChange={(event) => props.onInputChange(event.target.value as T)}
-          className={styles.input}
-          value={props.initialValue as string}
-        />
-        {props.unit && <div className={styles.unit}>{props.unit}</div>}
+    <ConfigurationItem
+      configuration={props.configuration}
+      className={`${styles.configurationItem} ${props.className}`}
+    >
+      {props.children}
+      <input
+        type={getTypeByInitialValue(props.initialValue)}
+        onChange={(event) => props.onInputChange(event.target.value as T)}
+        className={styles.input}
+        value={props.initialValue as string}
+        disabled={props.disabled}
+      />
+      {props.unit && <div className={styles.unit}>{props.unit}</div>}
     </ConfigurationItem>
   );
 }

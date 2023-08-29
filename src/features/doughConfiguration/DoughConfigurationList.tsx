@@ -18,6 +18,7 @@ export const DoughConfigurationList: React.FC = () => {
         <ConfigurationInputItem
           configuration={{ name: t.parameters.numberOfPizzas }}
           initialValue={context.doughConfig.value.numberOfPizzas}
+          unit={Unit.TIMES}
           onInputChange={(value: number) => {
             context.doughConfig.setValue((previous) => {
               return { ...previous, numberOfPizzas: value };

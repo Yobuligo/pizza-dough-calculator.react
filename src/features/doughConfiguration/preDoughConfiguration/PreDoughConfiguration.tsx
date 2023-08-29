@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
+import { Switch } from "../../../components/switch/Switch";
 import { AppContext } from "../../../context/AppContext";
 import { useTranslation } from "../../../hooks/useTranslation";
-import { ConfigurationItem } from "../components/configuration/ConfigurationItem";
+import { Unit } from "../../ingredient/model/Unit";
+import { ConfigurationInputItem } from "../components/configuration/configurationInputItem/ConfigurationInputItem";
 import styles from "./PreDoughConfiguration.module.css";
-import { Switch } from "../../../components/switch/Switch";
 
 export const PreDoughConfiguration: React.FC = () => {
   const { t } = useTranslation();
@@ -34,13 +35,15 @@ export const PreDoughConfiguration: React.FC = () => {
   }, [usePreDough]);
 
   return (
-    <ConfigurationItem configuration={{ name: t.parameters.preparePreDough }}>
+    <ConfigurationInputItem
+      configuration={{ name: t.parameters.preparePreDough }}
+      disabled={!usePreDough}
+      onInputChange={(value) => validateAndSetAmountPreDough(value as number)}
+      initialValue={context.doughConfig.value.percentPreDough}
+      unit={Unit.PERCENT}
+      className={styles.preDoughConfiguration}
+    >
       <div className={styles.preDoughConfiguration}>
-        {/* <Switch
-          id="preDough"
-          onChange={(_, checked) => setUsePreDough(checked)}
-          value={usePreDough}
-        /> */}
         <Switch
           onChange={(checked) => {
             setUsePreDough(checked);
@@ -48,19 +51,7 @@ export const PreDoughConfiguration: React.FC = () => {
           checked={usePreDough}
           className={styles.switch}
         />
-        <input
-          id="preDoughPercentage"
-          type="number"
-          disabled={!usePreDough}
-          onChange={(event) =>
-            validateAndSetAmountPreDough(+event.target.value)
-          }
-          value={context.doughConfig.value.percentPreDough}
-        />
-        <label className={styles.percentageLabel} htmlFor="preDoughPercentage">
-          %
-        </label>
       </div>
-    </ConfigurationItem>
+    </ConfigurationInputItem>
   );
 };
