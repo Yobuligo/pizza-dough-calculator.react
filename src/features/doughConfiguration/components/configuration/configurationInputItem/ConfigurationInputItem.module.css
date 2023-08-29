@@ -1,8 +1,13 @@
+.configurationItem {
+  display: flex;
+}
+
 .input {
   width: 4rem;
   border: 1px solid var(--secondaryColor);
   color: var(--secondaryColor);
-  font-weight: var(--inputFieldFontWeight);
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
 .unit {

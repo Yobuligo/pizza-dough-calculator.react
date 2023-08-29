@@ -5,4 +5,6 @@ export interface IConfigurationInputItemProps<T> extends IConfigurationProps {
   initialValue: T;
   onInputChange: (value: T) => void;
   unit?: Unit;
+  disabled?: boolean;
+  className?: string;
 }

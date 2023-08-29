@@ -1,24 +1,40 @@
-import MuiSwitch, { SwitchProps } from "@mui/material/Switch";
-import { alpha, styled } from "@mui/material/styles";
+import { ISwitchProps } from "./ISwitchProps";
+import styles from "./Switch.module.css";
+import { CSSProperties, useState } from "react";
 
-const primaryColor = "#f3d396";
-const secondaryColor = "#c39a6e";
+export const Switch: React.FC<ISwitchProps> = (props) => {
+  const [isChecked, setIsChecked] = useState(props.checked);
+  let style: CSSProperties = {};
 
-const ColouredSwitch = styled(MuiSwitch)(({ theme }) => ({
-  "& .MuiSwitch-switchBase.Mui-checked": {
-    color: secondaryColor,
-    "&:hover": {
-      backgroundColor: alpha(secondaryColor, theme.palette.action.hoverOpacity),
-    },
-  },
-  "& .MuiSwitch-track": {
-    backgroundColor: primaryColor,
-  },
-  "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
-    backgroundColor: secondaryColor,
-  },
-}));
+  const addCSSProperties = (cssProperties: CSSProperties) => {
+    style = { ...style, ...cssProperties } as CSSProperties;
+  };
 
-export const Switch: React.FC<SwitchProps> = (props) => {
-  return <ColouredSwitch {...props} />;
+  props.width &&
+    addCSSProperties({ "--switchWidth": props.width } as CSSProperties);
+  props.sliderColor &&
+    addCSSProperties({ "--sliderColor": props.sliderColor } as CSSProperties);
+  props.switchColorOff &&
+    addCSSProperties({
+      "--switchColorOff": props.switchColorOff,
+    } as CSSProperties);
+  props.switchColorOn &&
+    addCSSProperties({
+      "--switchColorOn": props.switchColorOn,
+    } as CSSProperties);
+
+  return (
+    <label style={style} className={`${props.className} ${styles.switch}`}>
+      <input
+        className={styles.checkbox}
+        type="checkbox"
+        onChange={(event) => {
+          setIsChecked(event.target.checked);
+          props.onChange(event.target.checked);
+        }}
+        checked={isChecked}
+      />
+      <span className={`${styles.slider} ${styles.round}`}></span>
+    </label>
+  );
 };
