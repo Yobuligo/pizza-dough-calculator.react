@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../../../context/AppContext";
 import { IngredientListHeader } from "../ingredientListHeader/IngredientListHeader";
-import { IngredientListMainPreDough } from "../ingredientListMainDough/IngredientListMainDough";
-import { IngredientListPreDough } from "../ingredientListPreDough/IngredientListPreDough";
-import { IngredientListWithoutPreDough } from "../ingredientListWithoutPreDough/IngredientListWithoutPreDough";
+import { IngredientListMainPreDough } from "./IngredientListMainDough";
+import { IngredientListPreDough } from "./IngredientListPreDough";
+import { IngredientListWithoutPreDough } from "./IngredientListWithoutPreDough";
 
 export const IngredientList: React.FC = () => {
   const context = useContext(AppContext);

@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { AppContext } from "../../../context/AppContext";
+import { IngredientListRow } from "../ingredientListRow/IngredientListRow";
 import { FlourTile } from "../ingredientTiles/FlourTile";
 import { SaltTile } from "../ingredientTiles/SaltTile";
 import { WaterTile } from "../ingredientTiles/WaterTile";
-import styles from "./IngredientListMainDough.module.css";
 
 export const IngredientListMainPreDough: React.FC = () => {
   const context = useContext(AppContext);
@@ -11,13 +11,14 @@ export const IngredientListMainPreDough: React.FC = () => {
 
   return (
     <>
-      <div className={styles.ingredientList}>
+      <IngredientListRow>
         <FlourTile amount={recipe.flour} />
         <WaterTile amount={recipe.water} />
-      </div>
-      <div className={styles.ingredientList}>
+      </IngredientListRow>
+
+      <IngredientListRow>
         <SaltTile amount={recipe.salt} />
-      </div>
+      </IngredientListRow>
     </>
   );
 };
