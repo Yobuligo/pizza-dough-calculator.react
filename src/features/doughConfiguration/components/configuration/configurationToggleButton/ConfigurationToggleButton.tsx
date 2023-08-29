@@ -19,7 +19,9 @@ export const ConfigurationToggleButton: React.FC<
 
   return (
     <ConfigurationItem configuration={props.configuration}>
-      <ToggleButtonGroup>{buildToggleButtons()}</ToggleButtonGroup>
+      <ToggleButtonGroup selected={props.selected}>
+        {buildToggleButtons()}
+      </ToggleButtonGroup>
     </ConfigurationItem>
   );
 };

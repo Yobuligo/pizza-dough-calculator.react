@@ -4,7 +4,7 @@ import { IToggleButtonGroupProps } from "./IToggleButtonGroupProps";
 import styles from "./ToggleButtonGroup.module.css";
 
 export const ToggleButtonGroup: React.FC<IToggleButtonGroupProps> = (props) => {
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(props.selected ?? 0);
 
   const items = props.children.map((item, index) => {
     return (

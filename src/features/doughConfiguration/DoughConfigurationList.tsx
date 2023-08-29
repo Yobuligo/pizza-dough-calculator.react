@@ -59,6 +59,7 @@ export const DoughConfigurationList: React.FC = () => {
         <ConfigurationToggleButton
           configuration={{ name: t.parameters.risingTime }}
           values={[t.parameters.short, t.parameters.long]}
+          selected={context.doughConfig.value.risingTime}
           onChange={(index) =>
             context.doughConfig.setValue((previous) => {
               return { ...previous, risingTime: index };
@@ -68,6 +69,7 @@ export const DoughConfigurationList: React.FC = () => {
         <ConfigurationToggleButton
           configuration={{ name: t.parameters.yeastType }}
           values={[t.parameters.dryYeast, t.parameters.freshYeast]}
+          selected={context.doughConfig.value.yeastType}
           onChange={(index) =>
             context.doughConfig.setValue((previous) => {
               return { ...previous, yeastType: index };
