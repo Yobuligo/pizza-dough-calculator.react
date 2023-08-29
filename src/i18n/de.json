@@ -1,5 +1,9 @@
 {
     "title": "Pizzateig Rechner",
+    "doughTypes": {
+        "preDough": "Vorteig",
+        "mainDough": "Hauptteig"
+    },
     "ingredients": {
         "flour": "Mehl",
         "honey": "Honig",

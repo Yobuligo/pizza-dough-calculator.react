@@ -4,15 +4,13 @@ import { ReactComponent as Honey } from "../../../assets/honey.svg";
 import { ReactComponent as Salt } from "../../../assets/salt.svg";
 import { ReactComponent as Water } from "../../../assets/water.svg";
 import { ReactComponent as Yeast } from "../../../assets/yeast.svg";
-import { ToggleButton } from "../../../components/toggleButton/ToggleButton";
-import { ToggleButtonGroup } from "../../../components/toggleButtonGroup/ToggleButtonGroup";
 import { AppContext } from "../../../context/AppContext";
 import { useTranslation } from "../../../hooks/useTranslation";
 import { IngredientTile } from "../ingredientTile/IngredientTile";
 import { Unit } from "../model/Unit";
-import styles from "./IngredientList.module.css";
+import styles from "./IngredientListWithPreDough.module.css";
 
-export const IngredientList: React.FC = () => {
+export const IngredientListWithPreDough: React.FC = () => {
   const { t } = useTranslation();
   const context = useContext(AppContext);
   const recipe = context.recipeWithoutPreDough.value;
@@ -70,19 +68,6 @@ export const IngredientList: React.FC = () => {
 
   return (
     <>
-      <header className={styles.ingredientListHeader}>
-        <ToggleButtonGroup>
-          <ToggleButton
-            className={styles.ingredientListHeaderToggleButton}
-            caption={t.doughTypes.preDough}
-          />
-          <ToggleButton
-            className={styles.ingredientListHeaderToggleButton}
-            caption={t.doughTypes.mainDough}
-          />
-        </ToggleButtonGroup>
-      </header>
-
       <div className={styles.ingredientList}>
         {flour}
         {salt}

@@ -1,5 +1,9 @@
 {
     "title": "Pizza Dough Calculator",
+    "doughTypes": {
+        "preDough": "Pre dough",
+        "mainDough": "Main dough"
+    },
     "ingredients": {
         "flour": "Flour",
         "honey": "Honey",
