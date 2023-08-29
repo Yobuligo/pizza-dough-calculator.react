@@ -20,6 +20,7 @@ export const ToggleButtonGroup: React.FC<IToggleButtonGroupProps> = (props) => {
         )}
         onClick={() => {
           setSelected(index);
+          props.onSelected?.(index);
           item.props.onClick?.();
         }}
         disabled={selected === index || props.disabled === true}

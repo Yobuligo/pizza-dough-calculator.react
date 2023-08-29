@@ -12,7 +12,7 @@ import styles from "./IngredientListPreDough.module.css";
 export const IngredientListPreDough: React.FC = () => {
   const { t } = useTranslation();
   const context = useContext(AppContext);
-  const recipe = context.recipeWithoutPreDough.value;
+  const recipe = context.recipeWithPreDough.value.preDough;
 
   const flour = (
     <IngredientTile

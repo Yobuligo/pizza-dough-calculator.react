@@ -4,8 +4,6 @@ import { ReactComponent as Honey } from "../../../assets/honey.svg";
 import { ReactComponent as Salt } from "../../../assets/salt.svg";
 import { ReactComponent as Water } from "../../../assets/water.svg";
 import { ReactComponent as Yeast } from "../../../assets/yeast.svg";
-import { ToggleButton } from "../../../components/toggleButton/ToggleButton";
-import { ToggleButtonGroup } from "../../../components/toggleButtonGroup/ToggleButtonGroup";
 import { AppContext } from "../../../context/AppContext";
 import { useTranslation } from "../../../hooks/useTranslation";
 import { IngredientTile } from "../ingredientTile/IngredientTile";
@@ -74,19 +72,6 @@ export const IngredientListWithoutPreDough: React.FC = () => {
 
   return (
     <>
-      <header className={styles.ingredientListHeader}>
-        <ToggleButtonGroup disabled={!context.doughConfig.value.usePreDough}>
-          <ToggleButton
-            className={styles.ingredientListHeaderToggleButton}
-            caption={t.doughTypes.preDough}
-          />
-          <ToggleButton
-            className={styles.ingredientListHeaderToggleButton}
-            caption={t.doughTypes.mainDough}
-          />
-        </ToggleButtonGroup>
-      </header>
-
       <div className={styles.ingredientList}>
         {flour}
         {water}

@@ -1,81 +1,37 @@
-import { useContext } from "react";
-import { ReactComponent as Flour } from "../../../assets/grain.svg";
-import { ReactComponent as Honey } from "../../../assets/honey.svg";
-import { ReactComponent as Salt } from "../../../assets/salt.svg";
-import { ReactComponent as Water } from "../../../assets/water.svg";
-import { ReactComponent as Yeast } from "../../../assets/yeast.svg";
+import { useContext, useState } from "react";
 import { ToggleButton } from "../../../components/toggleButton/ToggleButton";
 import { ToggleButtonGroup } from "../../../components/toggleButtonGroup/ToggleButtonGroup";
 import { AppContext } from "../../../context/AppContext";
 import { useTranslation } from "../../../hooks/useTranslation";
-import { IngredientTile } from "../ingredientTile/IngredientTile";
-import { Unit } from "../model/Unit";
+import { IngredientListMainPreDough } from "../ingredientListMainDough/IngredientListMainDough";
+import { IngredientListPreDough } from "../ingredientListPreDough/IngredientListPreDough";
+import { IngredientListWithoutPreDough } from "../ingredientListWithoutPreDough/IngredientListWithoutPreDough";
 import styles from "./IngredientList.module.css";
 
 export const IngredientList: React.FC = () => {
   const { t } = useTranslation();
   const context = useContext(AppContext);
-  const recipe = context.recipeWithoutPreDough.value;
+  const [selected, setSelected] = useState(0);
 
-  const flour = (
-    <IngredientTile
-      ingredient={{
-        name: t.ingredients.flour,
-        amount: recipe.flour,
-        unit: Unit.GRAMS,
-      }}
-      image={(className) => <Flour className={className} />}
-    />
-  );
-
-  const water = (
-    <IngredientTile
-      ingredient={{
-        name: t.ingredients.water,
-        amount: recipe.water,
-        unit: Unit.MILLILITER,
-      }}
-      image={(className) => <Water className={className} />}
-    />
-  );
-
-  const salt = (
-    <IngredientTile
-      ingredient={{
-        name: t.ingredients.salt,
-        amount: recipe.salt,
-        unit: Unit.GRAMS,
-      }}
-      image={(className) => <Salt className={className} />}
-    />
-  );
-
-  const honey = (
-    <IngredientTile
-      ingredient={{
-        name: t.ingredients.honey,
-        amount: recipe.honey,
-        unit: Unit.MILLILITER,
-      }}
-      image={(className) => <Honey className={className} />}
-    />
-  );
-
-  const yeast = (
-    <IngredientTile
-      ingredient={{
-        name: t.ingredients.yeast,
-        amount: recipe.yeast,
-        unit: Unit.GRAMS,
-      }}
-      image={(className) => <Yeast className={className} />}
-    />
-  );
+  let content;
+  if (context.doughConfig.value.usePreDough) {
+    if (selected === 0) {
+      content = <IngredientListPreDough />;
+    } else {
+      content = <IngredientListMainPreDough />;
+    }
+  } else {
+    content = <IngredientListWithoutPreDough />;
+  }
 
   return (
     <>
       <header className={styles.ingredientListHeader}>
-        <ToggleButtonGroup disabled={!context.doughConfig.value.usePreDough}>
+        <ToggleButtonGroup
+          disabled={!context.doughConfig.value.usePreDough}
+          onSelected={(index) => setSelected(index)}
+          selected={selected}
+        >
           <ToggleButton
             className={styles.ingredientListHeaderToggleButton}
             caption={t.doughTypes.preDough}
@@ -86,16 +42,7 @@ export const IngredientList: React.FC = () => {
           />
         </ToggleButtonGroup>
       </header>
-
-      <div className={styles.ingredientList}>
-        {flour}
-        {water}
-      </div>
-      <div className={styles.ingredientList}>
-        {honey}
-        {salt}
-        {yeast}
-      </div>
+      {content}
     </>
   );
 };

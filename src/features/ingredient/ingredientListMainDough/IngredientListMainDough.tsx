@@ -8,10 +8,10 @@ import { IngredientTile } from "../ingredientTile/IngredientTile";
 import { Unit } from "../model/Unit";
 import styles from "./IngredientListMainDough.module.css";
 
-export const IngredientMainPreDough: React.FC = () => {
+export const IngredientListMainPreDough: React.FC = () => {
   const { t } = useTranslation();
   const context = useContext(AppContext);
-  const recipe = context.recipeWithoutPreDough.value;
+  const recipe = context.recipeWithPreDough.value.dough;
 
   const flour = (
     <IngredientTile
