@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useTranslation } from "../../hooks/useTranslation";
-import styles from "./DoughtConfigurationList.module.css";
+import styles from "./DoughConfigurationList.module.css";
 import { ConfigurationInputItem } from "./components/configuration/configurationInputItem/ConfigurationInputItem";
 import { PreDoughConfiguration } from "./preDoughConfiguration/PreDoughConfiguration";
 import { AppContext } from "../../context/AppContext";
@@ -59,7 +59,7 @@ export const DoughConfigurationList: React.FC = () => {
           configuration={{ name: t.parameters.risingTime }}
           values={[t.parameters.short, t.parameters.long]}
         />
-      </fieldset>
+      </fieldset>          
     </div>
   );
 };
