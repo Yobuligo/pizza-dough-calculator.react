@@ -4,7 +4,6 @@ import { IngredientList } from "./ingredient/ingredientList/IngredientList";
 export const Dashboard: React.FC = () => {
   return (
     <>
-      {/* <Test /> */}
       <IngredientList />
       <DoughConfigurationList />
     </>
