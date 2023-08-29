@@ -71,7 +71,7 @@ export const IngredientList: React.FC = () => {
   return (
     <>
       <header className={styles.ingredientListHeader}>
-        <ToggleButtonGroup>
+        <ToggleButtonGroup disabled>
           <ToggleButton
             className={styles.ingredientListHeaderToggleButton}
             caption={t.doughTypes.preDough}

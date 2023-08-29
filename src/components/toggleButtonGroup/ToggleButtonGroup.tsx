@@ -15,13 +15,14 @@ export const ToggleButtonGroup: React.FC<IToggleButtonGroupProps> = (props) => {
           item.props.className,
           selected === index
             ? styles.toggleButtonSelected
-            : styles.toggleButtonUnselected
+            : styles.toggleButtonUnselected,
+          props.disabled ? styles.toggleButtonGroupDisabled : ""
         )}
         onClick={() => {
           setSelected(index);
           item.props.onClick?.();
         }}
-        disabled={selected === index}
+        disabled={selected === index || props.disabled === true}
       >
         {item.props.caption}
       </button>

@@ -19,3 +19,8 @@
   color: var(--secondaryColor);
   border: 1px solid var(--primaryColor);
 }
+
+.toggleButtonGroupDisabled {
+  color: var(--primaryColor);
+  border: 1px solid var(--primaryColor);
+}
