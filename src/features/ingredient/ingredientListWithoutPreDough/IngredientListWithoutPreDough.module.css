@@ -1,0 +1,17 @@
+.ingredientList {
+  display: flex;
+  column-gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.ingredientListHeader{
+  display: flex;
+  flex-direction: row;  
+  justify-content: center;
+  margin: 2rem;
+}
+
+.ingredientListHeaderToggleButton{
+  width: 8rem;
+}

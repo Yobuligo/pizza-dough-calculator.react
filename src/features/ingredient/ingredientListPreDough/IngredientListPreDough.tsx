@@ -1,18 +1,15 @@
 import { useContext } from "react";
 import { ReactComponent as Flour } from "../../../assets/grain.svg";
 import { ReactComponent as Honey } from "../../../assets/honey.svg";
-import { ReactComponent as Salt } from "../../../assets/salt.svg";
 import { ReactComponent as Water } from "../../../assets/water.svg";
 import { ReactComponent as Yeast } from "../../../assets/yeast.svg";
-import { ToggleButton } from "../../../components/toggleButton/ToggleButton";
-import { ToggleButtonGroup } from "../../../components/toggleButtonGroup/ToggleButtonGroup";
 import { AppContext } from "../../../context/AppContext";
 import { useTranslation } from "../../../hooks/useTranslation";
 import { IngredientTile } from "../ingredientTile/IngredientTile";
 import { Unit } from "../model/Unit";
-import styles from "./IngredientList.module.css";
+import styles from "./IngredientListPreDough.module.css";
 
-export const IngredientList: React.FC = () => {
+export const IngredientListPreDough: React.FC = () => {
   const { t } = useTranslation();
   const context = useContext(AppContext);
   const recipe = context.recipeWithoutPreDough.value;
@@ -36,17 +33,6 @@ export const IngredientList: React.FC = () => {
         unit: Unit.MILLILITER,
       }}
       image={(className) => <Water className={className} />}
-    />
-  );
-
-  const salt = (
-    <IngredientTile
-      ingredient={{
-        name: t.ingredients.salt,
-        amount: recipe.salt,
-        unit: Unit.GRAMS,
-      }}
-      image={(className) => <Salt className={className} />}
     />
   );
 
@@ -74,26 +60,12 @@ export const IngredientList: React.FC = () => {
 
   return (
     <>
-      <header className={styles.ingredientListHeader}>
-        <ToggleButtonGroup disabled={!context.doughConfig.value.usePreDough}>
-          <ToggleButton
-            className={styles.ingredientListHeaderToggleButton}
-            caption={t.doughTypes.preDough}
-          />
-          <ToggleButton
-            className={styles.ingredientListHeaderToggleButton}
-            caption={t.doughTypes.mainDough}
-          />
-        </ToggleButtonGroup>
-      </header>
-
       <div className={styles.ingredientList}>
         {flour}
         {water}
       </div>
       <div className={styles.ingredientList}>
         {honey}
-        {salt}
         {yeast}
       </div>
     </>
