@@ -1,11 +1,11 @@
 import { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 import { useTranslation } from "../../hooks/useTranslation";
+import { Unit } from "../ingredient/model/Unit";
 import styles from "./DoughConfigurationList.module.css";
 import { ConfigurationInputItem } from "./components/configuration/configurationInputItem/ConfigurationInputItem";
-import { PreDoughConfigurationItem } from "./preDoughConfiguration/PreDoughConfigurationItem";
-import { AppContext } from "../../context/AppContext";
-import { Unit } from "../ingredient/model/Unit";
 import { ConfigurationToggleButton } from "./components/configuration/configurationToggleButton/ConfigurationToggleButton";
+import { PreDoughConfigurationItem } from "./preDoughConfiguration/PreDoughConfigurationItem";
 
 export const DoughConfigurationList: React.FC = () => {
   const { t } = useTranslation();
@@ -59,12 +59,22 @@ export const DoughConfigurationList: React.FC = () => {
         <ConfigurationToggleButton
           configuration={{ name: t.parameters.risingTime }}
           values={[t.parameters.short, t.parameters.long]}
+          onChange={(index) =>
+            context.doughConfig.setValue((previous) => {
+              return { ...previous, risingTime: index };
+            })
+          }
         />
         <ConfigurationToggleButton
           configuration={{ name: t.parameters.yeastType }}
           values={[t.parameters.dryYeast, t.parameters.freshYeast]}
-        />        
-      </fieldset>          
+          onChange={(index) =>
+            context.doughConfig.setValue((previous) => {
+              return { ...previous, yeastType: index };
+            })
+          }
+        />
+      </fieldset>
     </div>
   );
 };
