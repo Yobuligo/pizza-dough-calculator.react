@@ -26,6 +26,7 @@ const App: React.FC = () => {
     preDough: { flour: 0, honey: 0, water: 0, yeast: 0 },
   });
 
+  // Function to recalculate values. It always runs, whenever the dough config changed
   const reCalcRecipe = useCallback(() => {
     if (doughConfig.value.usePreDough) {
       const recipe = CalculatorWithPreDough.calc(doughConfig.value);
@@ -37,10 +38,12 @@ const App: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doughConfig.value]);
 
+  // Recalculate values initially
   useEffect(() => {
     reCalcRecipe();
   }, [reCalcRecipe]);
 
+  // Save dough configuration on each change
   useEffect(() => writeDoughConfig(doughConfig.value), [doughConfig.value]);
 
   return (
