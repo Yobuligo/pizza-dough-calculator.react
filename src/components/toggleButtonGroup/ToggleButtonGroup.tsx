@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { style } from "../../utils/style";
+import styles from "./IToggleButtonGroup.module.css";
 import { IToggleButtonGroupProps } from "./IToggleButtonGroupProps";
 
 export const ToggleButtonGroup: React.FC<IToggleButtonGroupProps> = (props) => {
@@ -8,6 +10,12 @@ export const ToggleButtonGroup: React.FC<IToggleButtonGroupProps> = (props) => {
     return (
       <button
         key={index}
+        className={style(
+          styles.toggleButton,
+          selected === index
+            ? styles.toggleButtonSelected
+            : styles.toggleButtonUnselected
+        )}
         onClick={() => {
           setSelected(index);
           item.props.onClick?.();

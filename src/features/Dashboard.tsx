@@ -11,6 +11,7 @@ export const Dashboard: React.FC = () => {
       <ToggleButtonGroup>
         <ToggleButton caption="First" />
         <ToggleButton caption="Second" />
+        <ToggleButton caption="Third" />
       </ToggleButtonGroup>
     </>
   );
