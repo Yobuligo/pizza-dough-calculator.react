@@ -1,0 +1,10 @@
+.ingredientListHeader{
+    display: flex;
+    flex-direction: row;  
+    justify-content: center;
+    margin: 2rem;
+  }
+  
+  .ingredientListHeaderToggleButton{
+    width: 8rem;
+  }
