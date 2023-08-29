@@ -6,6 +6,7 @@
   box-shadow: 1px 1px 1px 1px var(--primaryColor);
   border-radius: 3px;
   padding: 0 0.5rem;
+  /* background-color: white; */
   background-color: var(--light);
 }
 

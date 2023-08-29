@@ -1,6 +1,8 @@
 .doughConfigurationList fieldset {
   margin: 0 1rem;
   border: 1px solid var(--secondaryColor);
+  border-radius: 2px;
   color: var(--secondaryColor);
-  background-color: var(--light);
+  background-color: white;
+  box-shadow: 1px 1px 1px 1px var(--light);
 }
