@@ -1,3 +1,4 @@
+import { DoughType } from "../types/DoughType";
 import { RisingTimeType } from "../types/RisingTimeType";
 import { YeastType } from "../types/YeastType";
 import { IDoughConfig } from "./IDoughConfig";
@@ -11,4 +12,5 @@ export const DoughConfigDefault: IDoughConfig = {
   usePreDough: false,
   weightOfDoughPiece: 280,
   yeastType: YeastType.FRESH,
+  selectedDoughType: DoughType.PRE_DOUGH,
 };
