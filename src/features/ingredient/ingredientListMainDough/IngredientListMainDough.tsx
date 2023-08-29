@@ -7,6 +7,7 @@ import { useTranslation } from "../../../hooks/useTranslation";
 import { IngredientTile } from "../ingredientTile/IngredientTile";
 import { Unit } from "../model/Unit";
 import styles from "./IngredientListMainDough.module.css";
+import { FlourTile } from "../ingredientTiles/FlourTile";
 
 export const IngredientListMainPreDough: React.FC = () => {
   const { t } = useTranslation();
@@ -49,6 +50,7 @@ export const IngredientListMainPreDough: React.FC = () => {
   return (
     <>
       <div className={styles.ingredientList}>
+        <FlourTile amount={recipe.flour}/>
         {flour}
         {water}
       </div>
