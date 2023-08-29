@@ -14,3 +14,10 @@
 .percentageLabel {
   margin-left: 0.2rem;
 }
+
+.switch {
+  margin-right: 1rem;
+  --switchWidth: 3rem;
+  --switchColorOff: var(--light);
+  --switchColorOn: var(--secondaryColor);
+}
