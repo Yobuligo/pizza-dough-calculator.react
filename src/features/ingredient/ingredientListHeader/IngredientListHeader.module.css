@@ -1,10 +1,12 @@
-.ingredientListHeader{
-    display: flex;
-    flex-direction: row;  
-    justify-content: center;
-    margin: 2rem;
-  }
-  
-  .ingredientListHeaderToggleButton{
-    width: 8rem;
-  }
+.ingredientListHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: var(--accentColor);
+  padding: 2rem;
+  padding-bottom: 1rem;
+}
+
+.ingredientListHeaderToggleButton {
+  width: 8rem;
+}

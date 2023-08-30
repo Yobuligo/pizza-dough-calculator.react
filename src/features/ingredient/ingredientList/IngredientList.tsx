@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../../../context/AppContext";
 import { IngredientListHeader } from "../ingredientListHeader/IngredientListHeader";
+import styles from "./IngredientList.module.css";
 import { IngredientListMainPreDough } from "./IngredientListMainDough";
 import { IngredientListPreDough } from "./IngredientListPreDough";
 import { IngredientListWithoutPreDough } from "./IngredientListWithoutPreDough";
@@ -35,7 +36,7 @@ export const IngredientList: React.FC = () => {
         onSelect={onSelectDoughType}
         selected={selectedDoughType}
       />
-      {content}
+      <div className={styles.ingredientListHeader}>{content}</div>
     </>
   );
 };
