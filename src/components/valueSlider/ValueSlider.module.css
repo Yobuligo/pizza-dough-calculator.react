@@ -1,4 +1,10 @@
-.valueSlider {
+.valueSliderInput {
   accent-color: var(--accentColor);
   width: 100%;
+}
+
+.valueSliderContainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
 }

@@ -18,38 +18,42 @@ export const ValueSlider: React.FC<IValueSliderProps> = (props) => {
           }
         }}
       />
-      <input
-        className={styles.valueSlider}
-        type="range"
-        min={props.min}
-        max={props.max}
-        value={value}
-        onChange={(event) => setValue(parseInt(event.target.value))}
-      />
-      <button
-        onClick={() =>
-          setValue((previous) => {
-            if (previous > props.min) {
-              previous--;
-            }
-            return previous;
-          })
-        }
-      >
-        -
-      </button>
-      <button
-        onClick={() =>
-          setValue((previous) => {
-            if (previous < props.max) {
-              previous++;
-            }
-            return previous;
-          })
-        }
-      >
-        +
-      </button>
+      <div className={styles.valueSliderContainer}>
+        <button
+          onClick={() =>
+            setValue((previous) => {
+              if (previous > props.min) {
+                previous--;
+              }
+              return previous;
+            })
+          }
+        >
+          -
+        </button>
+
+        <input
+          className={styles.valueSliderInput}
+          type="range"
+          min={props.min}
+          max={props.max}
+          value={value}
+          onChange={(event) => setValue(parseInt(event.target.value))}
+        />
+
+        <button
+          onClick={() =>
+            setValue((previous) => {
+              if (previous < props.max) {
+                previous++;
+              }
+              return previous;
+            })
+          }
+        >
+          +
+        </button>
+      </div>
     </div>
   );
 };
