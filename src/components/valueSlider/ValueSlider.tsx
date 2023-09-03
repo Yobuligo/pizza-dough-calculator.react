@@ -1,9 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { IValueSliderProps } from "./IValueSliderProps";
 import styles from "./ValueSlider.module.css";
 
 export const ValueSlider: React.FC<IValueSliderProps> = (props) => {
-  const [value, setValue] = useState(props.initialValue ?? 0);
+  const interval = props.interval ?? 1;
+  const initialValue = props.initialValue ?? 0;
+  const [value, setValue] = useState(initialValue);
+  const [sliderValue, setSliderValue] = useState(initialValue / interval);
+  const sliderMax = useMemo((): number => {
+    return props.max / interval;
+  }, [interval, props.max]);
 
   useEffect(() => {
     props.onChange?.(value);
@@ -11,28 +17,44 @@ export const ValueSlider: React.FC<IValueSliderProps> = (props) => {
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(event.target.value);
-    if (newValue >= props.min && newValue <= props.max) {
-      setValue(newValue);
+    if (newValue >= props.min && newValue <= sliderMax) {
+      setValue(newValue * interval);
+      setSliderValue(newValue);
     } else if (event.target.value === "") {
       setValue(0);
+      setSliderValue(0);
     }
   };
 
-  const onDecreaseValue = () =>
+  const onDecreaseValue = () => {
     setValue((previous) => {
+      if (previous > props.min) {
+        previous -= interval;
+      }
+      return previous;
+    });
+    setSliderValue((previous) => {
       if (previous > props.min) {
         previous--;
       }
       return previous;
     });
+  };
 
-  const onIncreaseValue = () =>
+  const onIncreaseValue = () => {
     setValue((previous) => {
+      if (previous < props.max) {
+        previous += interval;
+      }
+      return previous;
+    });
+    setSliderValue((previous) => {
       if (previous < props.max) {
         previous++;
       }
       return previous;
     });
+  };
 
   return (
     <div>
@@ -43,9 +65,9 @@ export const ValueSlider: React.FC<IValueSliderProps> = (props) => {
           className={styles.valueSliderInput}
           type="range"
           min={props.min}
-          max={props.max}
-          value={value}
-          onChange={(event) => setValue(parseInt(event.target.value))}
+          max={sliderMax}
+          value={sliderValue}
+          onChange={onChange}
         />
         <button onClick={onIncreaseValue}>+</button>
       </div>
