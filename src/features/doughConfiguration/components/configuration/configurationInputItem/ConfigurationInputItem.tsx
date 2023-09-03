@@ -33,7 +33,14 @@ export function ConfigurationInputItem<T>(
         disabled={props.disabled}
         onClick={() => {
           modalDialog.show({
-            component: <ValueSlider min={0} max={1000} />,
+            component: (
+              <ValueSlider
+                initialValue={props.initialValue as number}
+                min={0}
+                max={1000}
+                onChange={(newValue) => props.onInputChange(newValue as T)}
+              />
+            ),
           });
         }}
       />
