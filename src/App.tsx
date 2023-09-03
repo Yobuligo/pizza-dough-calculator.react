@@ -50,6 +50,9 @@ const App: React.FC = () => {
   // Save dough configuration on each change
   useEffect(() => writeDoughConfig(doughConfig.value), [doughConfig.value]);
 
+  const onCloseModalDialog = () =>
+    modalDialogConfig.setValue({ show: false, component: undefined });
+
   return (
     <AppContext.Provider
       value={{
@@ -59,8 +62,11 @@ const App: React.FC = () => {
         recipeWithoutPreDough,
       }}
     >
-      {modalDialogConfig.value.show ?? (
-        <ModalDialog {...modalDialogConfig.value} />
+      {modalDialogConfig.value.show && (
+        <ModalDialog
+          {...modalDialogConfig.value}
+          onClose={onCloseModalDialog}
+        />
       )}
       <DashboardPage />
     </AppContext.Provider>
