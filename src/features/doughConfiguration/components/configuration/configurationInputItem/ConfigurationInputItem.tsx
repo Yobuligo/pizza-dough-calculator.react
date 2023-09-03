@@ -1,10 +1,13 @@
+import { ValueSlider } from "../../../../../components/valueSlider/ValueSlider";
+import { useModalDialog } from "../../../../../hooks/useModalDialog";
 import { ConfigurationItem } from "../ConfigurationItem";
-import { IConfigurationInputItemProps } from "./IConfigurationInputItemProps";
 import styles from "./ConfigurationInputItem.module.css";
+import { IConfigurationInputItemProps } from "./IConfigurationInputItemProps";
 
 export function ConfigurationInputItem<T>(
   props: IConfigurationInputItemProps<T>
 ) {
+  const modalDialog = useModalDialog();
   const getTypeByInitialValue = (value: T) => {
     switch (typeof value) {
       case "number":
@@ -28,6 +31,11 @@ export function ConfigurationInputItem<T>(
         className={styles.input}
         value={props.initialValue as string}
         disabled={props.disabled}
+        onClick={() => {
+          modalDialog.show({
+            component: <ValueSlider min={0} max={1000} />,
+          });
+        }}
       />
       {props.unit && <div className={styles.unit}>{props.unit}</div>}
     </ConfigurationItem>
