@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
+import { IModalDialogConfig } from "../../types/IModalDialogConfig";
 
-export interface IModalDialogProps {
-  children: ReactNode;
-}
+export interface IModalDialogProps extends IModalDialogConfig {}

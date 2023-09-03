@@ -1,16 +1,19 @@
 import { useCallback, useEffect } from "react";
+import { ModalDialog } from "./components/modalDialog/ModalDialog";
 import { AppContext } from "./context/AppContext";
 import { useValue } from "./hooks/useValue";
 import { IDoughConfig } from "./model/IDoughConfig";
 import { DashboardPage } from "./pages/DashboardPage";
 import { CalculatorWithPreDough } from "./services/calculator/calculatorWithPreDough/CalculatorWithPreDough";
 import { CalculatorWithoutPreDough } from "./services/calculator/calculatorWithoutPreDough/CalculatorWithoutPreDough";
+import { IModalDialogConfig } from "./types/IModalDialogConfig";
 import { IRecipeWithPreDough } from "./types/IRecipeWithPreDough";
 import { IRecipeWithoutPreDough } from "./types/IRecipeWithoutPreDough";
 import { readDoughConfig } from "./utils/readDoughConfig";
 import { writeDoughConfig } from "./utils/writeDoughConfig";
 
 const App: React.FC = () => {
+  const modalDialogConfig = useValue<IModalDialogConfig>({ show: false });
   const doughConfig = useValue<IDoughConfig>(readDoughConfig());
 
   const recipeWithoutPreDough = useValue<IRecipeWithoutPreDough>({
@@ -49,8 +52,16 @@ const App: React.FC = () => {
 
   return (
     <AppContext.Provider
-      value={{ doughConfig, recipeWithPreDough, recipeWithoutPreDough }}
+      value={{
+        doughConfig,
+        modalDialogConfig,
+        recipeWithPreDough,
+        recipeWithoutPreDough,
+      }}
     >
+      {modalDialogConfig.value.show ?? (
+        <ModalDialog {...modalDialogConfig.value} />
+      )}
       <DashboardPage />
     </AppContext.Provider>
   );

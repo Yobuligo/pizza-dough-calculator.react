@@ -6,7 +6,7 @@ export const ModalDialog: React.FC<IModalDialogProps> = (props) => {
   return ReactDOM.createPortal(
     <div className={styles.modalContainer}>
       <div className={styles.modalBackdrop}></div>
-      <div className={styles.modalDialog}>{props.children}</div>
+      <div className={styles.modalDialog}>{props.component}</div>
     </div>,
     document.getElementById("modalContainer")!
   );
