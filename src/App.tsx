@@ -27,6 +27,7 @@ const App: React.FC = () => {
   });
 
   // Function to recalculate values. It always runs, whenever the dough config changed
+
   const reCalcRecipe = useCallback(() => {
     if (doughConfig.value.usePreDough) {
       const recipe = CalculatorWithPreDough.calc(doughConfig.value);
