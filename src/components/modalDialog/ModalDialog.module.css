@@ -17,3 +17,12 @@
   margin-left: 50%;
   transform: translate(-50%);
 }
+
+.modalDialogTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  margin-bottom: 1rem;
+  color: var(--secondaryColor);
+}

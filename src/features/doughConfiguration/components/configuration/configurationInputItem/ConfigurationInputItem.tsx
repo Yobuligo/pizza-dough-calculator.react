@@ -42,6 +42,7 @@ export function ConfigurationInputItem<T>(
                 onChange={(newValue) => props.onInputChange(newValue as T)}
               />
             ),
+            title: props.configuration.name
           });
         }}
       />

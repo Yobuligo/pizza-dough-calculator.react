@@ -1,3 +1,10 @@
+.valueSliderValue {
+  border: 1px solid var(--secondaryColor);
+  color: var(--secondaryColor);
+  font-size: 1.2rem;
+  outline: none;
+}
+
 .valueSliderInput {
   accent-color: var(--accentColor);
   width: 100%;
@@ -7,4 +14,14 @@
   display: flex;
   flex-direction: row;
   margin-top: 1rem;
+}
+
+.valueSliderButton{
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor); 
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 0;
+  width: 2rem;
+  height: 2rem;
 }

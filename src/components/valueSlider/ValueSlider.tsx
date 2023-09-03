@@ -74,9 +74,16 @@ export const ValueSlider: React.FC<IValueSliderProps> = (props) => {
 
   return (
     <div>
-      <input type="number" value={value} onChange={onChange} />
+      <input
+        className={styles.valueSliderValue}
+        type="number"
+        value={value}
+        onChange={onChange}
+      />
       <div className={styles.valueSliderContainer}>
-        <button onClick={onDecreaseValue}>-</button>
+        <button className={styles.valueSliderButton} onClick={onDecreaseValue}>
+          -
+        </button>
         <input
           className={styles.valueSliderInput}
           type="range"
@@ -85,7 +92,9 @@ export const ValueSlider: React.FC<IValueSliderProps> = (props) => {
           value={sliderValue}
           onChange={onChange}
         />
-        <button onClick={onIncreaseValue}>+</button>
+        <button className={styles.valueSliderButton} onClick={onIncreaseValue}>
+          +
+        </button>
       </div>
     </div>
   );
