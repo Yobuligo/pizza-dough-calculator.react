@@ -40,6 +40,8 @@ export const PreDoughConfigurationItem: React.FC = () => {
       disabled={!usePreDough}
       onInputChange={(value) => validateAndSetAmountPreDough(value as number)}
       initialValue={context.doughConfig.value.percentPreDough}
+      min={0}
+      max={100}
       unit={Unit.PERCENT}
       className={styles.preDoughConfiguration}
     >

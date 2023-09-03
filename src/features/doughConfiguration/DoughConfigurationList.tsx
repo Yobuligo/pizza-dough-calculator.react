@@ -15,9 +15,11 @@ export const DoughConfigurationList: React.FC = () => {
     <div className={styles.doughConfigurationList}>
       <fieldset>
         <legend>{t.parameters.title}</legend>
-        <ConfigurationInputItem
+        <ConfigurationInputItem        
           configuration={{ name: t.parameters.numberOfPizzas }}
           initialValue={context.doughConfig.value.numberOfPizzas}
+          min={0}
+          max={100}
           unit={Unit.TIMES}
           onInputChange={(value: number) => {
             context.doughConfig.setValue((previous) => {
@@ -28,6 +30,8 @@ export const DoughConfigurationList: React.FC = () => {
         <ConfigurationInputItem
           configuration={{ name: t.parameters.weightOfDoughPiece }}
           initialValue={context.doughConfig.value.weightOfDoughPiece}
+          min={0}
+          max={1000}
           unit={Unit.GRAMS}
           onInputChange={(value: number) => {
             context.doughConfig.setValue((previous) => {
@@ -38,6 +42,8 @@ export const DoughConfigurationList: React.FC = () => {
         <ConfigurationInputItem
           configuration={{ name: t.parameters.hydration }}
           initialValue={context.doughConfig.value.hydration}
+          min={0}
+          max={100}
           unit={Unit.PERCENT}
           onInputChange={(value: number) => {
             context.doughConfig.setValue((previous) => {
@@ -48,6 +54,8 @@ export const DoughConfigurationList: React.FC = () => {
         <ConfigurationInputItem
           configuration={{ name: t.parameters.salt }}
           initialValue={context.doughConfig.value.salt}
+          min={0}
+          max={100}
           unit={Unit.PERCENT}
           onInputChange={(value: number) => {
             context.doughConfig.setValue((previous) => {
