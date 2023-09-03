@@ -4,7 +4,6 @@ import { IngredientList } from "../features/ingredient/ingredientList/Ingredient
 export const DashboardPage: React.FC = () => {
   return (
     <>
-      <input type="range" />
       <IngredientList />
       <DoughConfigurationList />
     </>
