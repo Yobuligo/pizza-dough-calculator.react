@@ -36,6 +36,7 @@ export function ConfigurationInputItem<T>(
             component: (
               <ValueSlider
                 initialValue={props.initialValue as number}
+                interval={props.interval}
                 max={props.max}
                 min={props.min}
                 onChange={(newValue) => props.onInputChange(newValue as T)}

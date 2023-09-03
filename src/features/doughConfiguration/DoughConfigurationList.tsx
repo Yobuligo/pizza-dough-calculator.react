@@ -15,7 +15,7 @@ export const DoughConfigurationList: React.FC = () => {
     <div className={styles.doughConfigurationList}>
       <fieldset>
         <legend>{t.parameters.title}</legend>
-        <ConfigurationInputItem        
+        <ConfigurationInputItem
           configuration={{ name: t.parameters.numberOfPizzas }}
           initialValue={context.doughConfig.value.numberOfPizzas}
           min={0}
@@ -54,8 +54,9 @@ export const DoughConfigurationList: React.FC = () => {
         <ConfigurationInputItem
           configuration={{ name: t.parameters.salt }}
           initialValue={context.doughConfig.value.salt}
+          interval={0.1}
           min={0}
-          max={100}
+          max={10}
           unit={Unit.PERCENT}
           onInputChange={(value: number) => {
             context.doughConfig.setValue((previous) => {

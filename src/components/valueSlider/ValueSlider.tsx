@@ -1,12 +1,26 @@
 import { useEffect, useMemo, useState } from "react";
+import { getDecimalPlaces } from "../../utils/getDecimalPlaces";
 import { IValueSliderProps } from "./IValueSliderProps";
 import styles from "./ValueSlider.module.css";
 
 export const ValueSlider: React.FC<IValueSliderProps> = (props) => {
   const interval = props.interval ?? 1;
+  const decimalPlaces = getDecimalPlaces(interval);
+  const round = (value: number): number => {
+    if (decimalPlaces === 0) {
+      return value;
+    }
+    const product = value * (10 * decimalPlaces);
+    const rounded = Math.round(product);
+    const result = rounded / (10 * decimalPlaces);
+    return result;
+  };
+
   const initialValue = props.initialValue ?? 0;
   const [value, setValue] = useState(initialValue);
-  const [sliderValue, setSliderValue] = useState(initialValue / interval);
+  const [sliderValue, setSliderValue] = useState(
+    Math.floor(initialValue / interval)
+  );
   const sliderMax = useMemo((): number => {
     return props.max / interval;
   }, [interval, props.max]);
@@ -18,7 +32,7 @@ export const ValueSlider: React.FC<IValueSliderProps> = (props) => {
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(event.target.value);
     if (newValue >= props.min && newValue <= sliderMax) {
-      setValue(newValue * interval);
+      setValue(round(newValue * interval));
       setSliderValue(newValue);
     } else if (event.target.value === "") {
       setValue(0);
@@ -30,6 +44,7 @@ export const ValueSlider: React.FC<IValueSliderProps> = (props) => {
     setValue((previous) => {
       if (previous > props.min) {
         previous -= interval;
+        previous = round(previous);
       }
       return previous;
     });
@@ -45,11 +60,12 @@ export const ValueSlider: React.FC<IValueSliderProps> = (props) => {
     setValue((previous) => {
       if (previous < props.max) {
         previous += interval;
+        previous = round(previous);
       }
       return previous;
     });
     setSliderValue((previous) => {
-      if (previous < props.max) {
+      if (previous < sliderMax) {
         previous++;
       }
       return previous;
