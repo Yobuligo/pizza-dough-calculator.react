@@ -52,7 +52,7 @@ export function ConfigurationInputItem<T>(
               }
             },
             title: props.configuration.name,
-            width: "80%",
+            width: "90%",
           });
         }}
       />
