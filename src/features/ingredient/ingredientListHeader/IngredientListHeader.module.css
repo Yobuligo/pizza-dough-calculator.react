@@ -9,6 +9,7 @@
 .headerToggleButton {
   width: 8rem;
   color: white;
+  border-color: var(--accentColorOpacity50);
 }
 
 .headerToggleButtonSelected {
@@ -20,7 +21,8 @@
 }
 
 .headerToggleButtonDisabled{
-  color: rgb(153, 153, 153);
+  color: rgb(131, 131, 131);
+  background-color: var(--accentColorOpacity50);
 }
 
 .headerToggleButtonLeft {
