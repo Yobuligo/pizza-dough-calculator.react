@@ -4,11 +4,12 @@
   column-gap: 0.5rem;
 }
 
-.value {
+.valueInput {
   border: 1px solid var(--secondaryColor);
   color: var(--secondaryColor);
   font-size: 1.2rem;
   outline: none;
+  width:100%
 }
 
 .unit{
