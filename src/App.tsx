@@ -1,4 +1,5 @@
 import { useCallback, useEffect } from "react";
+import styles from "./App.module.css";
 import { ModalDialog } from "./components/modalDialog/ModalDialog";
 import { AppContext } from "./context/AppContext";
 import { useValue } from "./hooks/useValue";
@@ -54,22 +55,26 @@ const App: React.FC = () => {
     modalDialogConfig.setValue({ show: false, component: undefined });
 
   return (
-    <AppContext.Provider
-      value={{
-        doughConfig,
-        modalDialogConfig,
-        recipeWithPreDough,
-        recipeWithoutPreDough,
-      }}
-    >
-      {modalDialogConfig.value.show && (
-        <ModalDialog
-          {...modalDialogConfig.value}
-          onClose={onCloseModalDialog}
-        />
-      )}
-      <DashboardPage />
-    </AppContext.Provider>
+    <div>
+      <div className={styles.imagePizza}></div>
+      <div className={styles.imageOlives}></div>
+      <AppContext.Provider
+        value={{
+          doughConfig,
+          modalDialogConfig,
+          recipeWithPreDough,
+          recipeWithoutPreDough,
+        }}
+      >
+        {modalDialogConfig.value.show && (
+          <ModalDialog
+            {...modalDialogConfig.value}
+            onClose={onCloseModalDialog}
+          />
+        )}
+        <DashboardPage />
+      </AppContext.Provider>
+    </div>
   );
 };
 
