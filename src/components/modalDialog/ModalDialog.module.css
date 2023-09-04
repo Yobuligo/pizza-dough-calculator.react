@@ -41,12 +41,3 @@
   border-top: 1px solid var(--secondaryColor);
   padding: 0.5rem;
 }
-
-.modalDialogFooter button{
-  background-color: white;
-  border: 1px solid var(--primaryColor);
-  font-size: medium;
-  font-weight: 600;
-  padding: 0.5rem;
-  color: var(--secondaryColor);
-}

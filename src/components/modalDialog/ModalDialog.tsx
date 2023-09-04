@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
 import { useTranslation } from "../../hooks/useTranslation";
+import { Button } from "../button/Button";
 import { Card } from "../card/Card";
 import { IModalDialogProps } from "./IModalDialogProps";
 import styles from "./ModalDialog.module.css";
@@ -17,10 +18,10 @@ export const ModalDialog: React.FC<IModalDialogProps> = (props) => {
         <main className={styles.modalDialogMain}>{props.component}</main>
         <footer className={styles.modalDialogFooter}>
           {props.onOkay && (
-            <button onClick={props.onOkay}>{t.dialog.okay}</button>
+            <Button onClick={props.onOkay}>{t.dialog.okay}</Button>
           )}
           {props.onClose && (
-            <button onClick={props.onClose}>{t.dialog.cancel}</button>
+            <Button onClick={props.onClose}>{t.dialog.cancel}</Button>
           )}
         </footer>
       </Card>
