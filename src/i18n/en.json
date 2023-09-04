@@ -1,4 +1,8 @@
 {
+    "dialog": {
+        "okay": "Ok",
+        "cancel": "Cancel"
+    },
     "title": "Pizza Dough Calculator",
     "doughTypes": {
         "preDough": "Pre dough",

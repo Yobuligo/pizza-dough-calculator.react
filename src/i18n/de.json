@@ -1,4 +1,8 @@
 {
+    "dialog": {
+        "okay": "Ok",
+        "cancel": "Abbrechen"
+    },
     "title": "Pizzateig Rechner",
     "doughTypes": {
         "preDough": "Vorteig",

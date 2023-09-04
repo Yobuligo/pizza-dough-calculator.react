@@ -20,11 +20,33 @@
   transform: translate(-50%);
 }
 
-.modalDialogTitle {
+.modalDialogHeader {
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin: 0;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+  color: var(--secondaryColor);
+}
+
+.modalDialogMain {
+  margin: 1rem;
+}
+
+.modalDialogFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  background-color: var(--lighter);
+  border-top: 1px solid var(--secondaryColor);
+  padding: 0.5rem;
+}
+
+.modalDialogFooter button{
+  background-color: white;
+  border: 1px solid var(--primaryColor);
+  font-size: medium;
+  font-weight: 600;
+  padding: 0.5rem;
   color: var(--secondaryColor);
 }
