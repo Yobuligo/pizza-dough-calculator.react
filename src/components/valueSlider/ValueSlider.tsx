@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { getDecimalPlaces } from "../../utils/getDecimalPlaces";
+import { Button } from "../button/Button";
 import { IValueSliderProps } from "./IValueSliderProps";
 import styles from "./ValueSlider.module.css";
 
@@ -88,9 +89,9 @@ export const ValueSlider: React.FC<IValueSliderProps> = (props) => {
         <div>{props.unit}</div>
       </div>
       <div className={styles.valueSliderContainer}>
-        <button className={styles.valueSliderButton} onClick={onDecreaseValue}>
+        <Button className={styles.button} onClick={onDecreaseValue}>
           -
-        </button>
+        </Button>
         <input
           className={styles.valueSliderInput}
           type="range"
@@ -99,9 +100,9 @@ export const ValueSlider: React.FC<IValueSliderProps> = (props) => {
           value={sliderValue}
           onChange={onChange}
         />
-        <button className={styles.valueSliderButton} onClick={onIncreaseValue}>
+        <Button className={styles.button} onClick={onIncreaseValue}>
           +
-        </button>
+        </Button>
       </div>
     </div>
   );

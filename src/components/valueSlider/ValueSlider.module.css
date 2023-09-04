@@ -22,12 +22,7 @@
   margin-top: 1rem;
 }
 
-.valueSliderButton {
-  background-color: var(--primaryColor);
-  color: var(--secondaryColor);
-  font-size: 1.2rem;
-  font-weight: 600;
-  border: 0;
+.button {
   width: 4rem;
   height: 2rem;
 }
