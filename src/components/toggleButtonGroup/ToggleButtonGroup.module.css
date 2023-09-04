@@ -24,3 +24,11 @@
   color: var(--primaryColor);
   border: 1px solid var(--primaryColor);
 }
+
+.toggleButtonRemoveBorderLeft{
+  border-left: none;
+}
+
+.toggleButtonRemoveBorderRight{
+ border-right: none;
+}
