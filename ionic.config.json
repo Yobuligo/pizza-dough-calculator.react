@@ -1,0 +1,7 @@
+{
+  "name": "PizzaDoughCalculator",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

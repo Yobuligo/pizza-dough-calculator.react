@@ -1,0 +1,8 @@
+{
+    "appId": "com.outlivethesun.pizzadoughcalculator",
+    "appName": "PizzaDoughCalculator",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "build",
+    "cordova": {}
+}
