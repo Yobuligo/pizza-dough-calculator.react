@@ -8,6 +8,11 @@ import styles from "./ModalDialog.module.css";
 export const ModalDialog: React.FC<IModalDialogProps> = (props) => {
   const { t } = useTranslation();
 
+  const onOkay = () => {
+    props.onOkay?.();
+    props.onClose?.();
+  };
+
   return ReactDOM.createPortal(
     <div className={styles.modalContainer}>
       <div className={styles.modalBackdrop} onClick={props.onClose}></div>
@@ -17,12 +22,10 @@ export const ModalDialog: React.FC<IModalDialogProps> = (props) => {
         </header>
         <main className={styles.modalDialogMain}>{props.component}</main>
         <footer className={styles.modalDialogFooter}>
-          {props.onOkay && (
-            <Button onClick={props.onOkay}>{t.dialog.okay}</Button>
-          )}
           {props.onClose && (
             <Button onClick={props.onClose}>{t.dialog.cancel}</Button>
           )}
+          {props.onOkay && <Button className={styles.okayButton} onClick={onOkay}>{t.dialog.okay}</Button>}
         </footer>
       </Card>
     </div>,

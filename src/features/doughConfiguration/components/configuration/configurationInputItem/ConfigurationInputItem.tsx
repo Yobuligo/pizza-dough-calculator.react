@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ValueSlider } from "../../../../../components/valueSlider/ValueSlider";
 import { useModalDialog } from "../../../../../hooks/useModalDialog";
 import { ConfigurationItem } from "../ConfigurationItem";
@@ -9,7 +8,7 @@ export function ConfigurationInputItem<T>(
   props: IConfigurationInputItemProps<T>
 ) {
   const modalDialog = useModalDialog();
-  const [updatedValue, setUpdatedValue] = useState<T>(props.initialValue);
+  let updatedValue: T;
   const getTypeByInitialValue = (value: T) => {
     switch (typeof value) {
       case "number":
@@ -41,11 +40,17 @@ export function ConfigurationInputItem<T>(
                 interval={props.interval}
                 max={props.max}
                 min={props.min}
-                onChange={(newValue) => setUpdatedValue(newValue as T)}
+                onChange={(newValue) => {
+                  updatedValue = newValue as T;
+                }}
                 unit={props.unit}
               />
             ),
-            onOkay: () => props.onInputChange(updatedValue),
+            onOkay: () => {
+              if (updatedValue) {
+                props.onInputChange(updatedValue);
+              }
+            },
             title: props.configuration.name,
             width: "80%",
           });
