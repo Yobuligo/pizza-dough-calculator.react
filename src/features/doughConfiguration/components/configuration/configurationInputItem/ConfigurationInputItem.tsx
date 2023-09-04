@@ -40,9 +40,11 @@ export function ConfigurationInputItem<T>(
                 max={props.max}
                 min={props.min}
                 onChange={(newValue) => props.onInputChange(newValue as T)}
+                unit={props.unit}
               />
             ),
-            title: props.configuration.name
+            title: props.configuration.name,
+            width: "80%",
           });
         }}
       />

@@ -78,12 +78,15 @@ export const ValueSlider: React.FC<IValueSliderProps> = (props) => {
 
   return (
     <div>
-      <input
-        className={styles.valueSliderValue}
-        type="number"
-        value={value}
-        onChange={onChange}
-      />
+      <div className={styles.valueContainer}>
+        <input
+          className={styles.valueSliderValue}
+          type="number"
+          value={value}
+          onChange={onChange}
+        />
+        <div>{props.unit}</div>
+      </div>
       <div className={styles.valueSliderContainer}>
         <button className={styles.valueSliderButton} onClick={onDecreaseValue}>
           -
