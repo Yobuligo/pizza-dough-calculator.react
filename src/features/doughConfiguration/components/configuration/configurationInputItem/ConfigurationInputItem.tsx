@@ -39,7 +39,6 @@ export function ConfigurationInputItem<T>(
                 interval={props.interval}
                 max={props.max}
                 min={props.min}
-                onChange={(newValue) => props.onInputChange(newValue as T)}
                 unit={props.unit}
               />
             ),
