@@ -4,25 +4,33 @@
   column-gap: 0.5rem;
 }
 
-.valueSliderValue {
+.valueInput {
   border: 1px solid var(--secondaryColor);
   color: var(--secondaryColor);
   font-size: 1.2rem;
   outline: none;
+  width:100%
 }
 
-.valueSliderInput {
-  accent-color: var(--accentColor);
-  width: 100%;
+.unit{
+  color: var(--secondaryColor);
+  font-weight: 600;
 }
 
-.valueSliderContainer {
+.sliderContainer {
   display: flex;
   flex-direction: row;
   margin-top: 1rem;
+}
+
+.slider {
+  accent-color: var(--accentColor);
+  width: 100%;
 }
 
 .button {
   width: 4rem;
   height: 2rem;
 }
+
+
