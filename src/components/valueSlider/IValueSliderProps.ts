@@ -8,5 +8,6 @@ export interface IValueSliderProps {
   interval?: number;
   min: number;
   max: number;
+  onCancel?: (reset: ()=>void) => void;
   onChange?: (newValue: number) => void;
 }

@@ -72,6 +72,10 @@ export const ValueSlider: React.FC<IValueSliderProps> = (props) => {
     });
   };
 
+  if (props.onCancel) {
+    props.onCancel(() => props.onChange?.(initialValue));
+  }
+
   return (
     <div>
       <input
