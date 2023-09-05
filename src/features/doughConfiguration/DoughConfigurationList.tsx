@@ -52,7 +52,7 @@ export const DoughConfigurationList: React.FC = () => {
             });
           }}
         />
-        <ConfigurationInputItem
+        <ConfigurationInputItem2
           configuration={{ name: t.parameters.salt }}
           initialValue={context.doughConfig.value.salt}
           interval={0.1}

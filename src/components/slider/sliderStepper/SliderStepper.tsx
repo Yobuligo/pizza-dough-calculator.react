@@ -3,6 +3,8 @@ import { Button } from "../../button/Button";
 import { Slider } from "../slider/Slider";
 import { ISliderStepperProps } from "./ISliderStepperProps";
 import styles from "./SliderStepper.module.css";
+import { round } from "../../../utils/math/round";
+import { getDecimalPlaces } from "../../../utils/math/getDecimalPlaces";
 
 export const SliderStepper: React.FC<ISliderStepperProps> = (props) => {
   const interval = props.interval ?? 1;
@@ -39,8 +41,12 @@ export const SliderStepper: React.FC<ISliderStepperProps> = (props) => {
   };
 
   useEffect(() => {
-    props.onChange?.(sliderValue);
-  }, [props, sliderValue]);
+    // Consider interval and calculate back from slider value to correct value    
+    const decimalPlaces = getDecimalPlaces(interval);
+    const newValue = round(sliderValue * interval, decimalPlaces);
+    props.onChange?.(newValue);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sliderValue]);
 
   return (
     <div className={styles.container}>
