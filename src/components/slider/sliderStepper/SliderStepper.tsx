@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button } from "../../button/Button";
 import { Slider } from "../slider/Slider";
 import { ISliderStepperProps } from "./ISliderStepperProps";
@@ -37,6 +37,10 @@ export const SliderStepper: React.FC<ISliderStepperProps> = (props) => {
       return previous;
     });
   };
+
+  useEffect(() => {
+    props.onChange?.(sliderValue);
+  }, [props, sliderValue]);
 
   return (
     <div className={styles.container}>
