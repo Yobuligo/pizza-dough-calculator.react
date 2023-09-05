@@ -1,3 +1,11 @@
+.configurationInputItem {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+  border: 1px solid var(--primaryColor);
+  padding: 0.5rem;
+}
+
 .configurationItem {
   display: flex;
   font-weight: 500;

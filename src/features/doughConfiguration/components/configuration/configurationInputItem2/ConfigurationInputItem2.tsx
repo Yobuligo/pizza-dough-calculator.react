@@ -18,7 +18,7 @@ export function ConfigurationInputItem2<T>(
   };
 
   return (
-    <div>
+    <div className={styles.configurationInputItem}>
       <ConfigurationItem
         configuration={props.configuration}
         className={`${styles.configurationItem} ${props.className}`}
@@ -33,17 +33,15 @@ export function ConfigurationInputItem2<T>(
         />
         {props.unit && <div className={styles.unit}>{props.unit}</div>}
       </ConfigurationItem>
-      <div>
-        <SliderStepper
-          initialValue={props.initialValue as number}
-          interval={props.interval}
-          max={props.max}
-          min={props.min}
-          onChange={(newValue) => {
-            props.onInputChange(newValue as T);
-          }}
-        />
-      </div>
+      <SliderStepper
+        initialValue={props.initialValue as number}
+        interval={props.interval}
+        max={props.max}
+        min={props.min}
+        onChange={(newValue) => {
+          props.onInputChange(newValue as T);
+        }}
+      />
     </div>
   );
 }

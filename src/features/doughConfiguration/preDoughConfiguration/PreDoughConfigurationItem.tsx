@@ -5,6 +5,7 @@ import { useTranslation } from "../../../hooks/useTranslation";
 import { Unit } from "../../ingredient/model/Unit";
 import { ConfigurationInputItem } from "../components/configuration/configurationInputItem/ConfigurationInputItem";
 import styles from "./PreDoughConfigurationItem.module.css";
+import { ConfigurationInputItem2 } from "../components/configuration/configurationInputItem2/ConfigurationInputItem2";
 
 export const PreDoughConfigurationItem: React.FC = () => {
   const { t } = useTranslation();
@@ -35,7 +36,7 @@ export const PreDoughConfigurationItem: React.FC = () => {
   }, [usePreDough]);
 
   return (
-    <ConfigurationInputItem
+    <ConfigurationInputItem2
       configuration={{ name: t.parameters.preparePreDough }}
       disabled={!usePreDough}
       onInputChange={(value) => validateAndSetAmountPreDough(value as number)}
@@ -54,6 +55,6 @@ export const PreDoughConfigurationItem: React.FC = () => {
           className={styles.switch}
         />
       </div>
-    </ConfigurationInputItem>
+    </ConfigurationInputItem2>
   );
 };

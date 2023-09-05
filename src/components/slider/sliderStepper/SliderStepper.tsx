@@ -14,9 +14,9 @@ export const SliderStepper: React.FC<ISliderStepperProps> = (props) => {
   );
 
   // Calculate max slider value depending on the given interval.
-  // Assume min value = 1 max value = 10, but interval = 0.1
+  // Assume props.min value = 1 props.max value = 10, but interval = 0.1
   // means the slider has 0.1, 0.2, 0.3 ... steps
-  // From 0 - 10 means we have 100 steps.
+  // From 0 - 10 means we have 100 steps instead of 10 (from props.max).
   const sliderMax = useMemo((): number => {
     return props.max / interval;
   }, [interval, props.max]);
