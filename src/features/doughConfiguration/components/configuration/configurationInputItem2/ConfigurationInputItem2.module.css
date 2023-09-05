@@ -1,0 +1,21 @@
+.configurationItem {
+  display: flex;
+  font-weight: 500;
+}
+
+.input {
+  width: 4rem;
+  border: 1px solid var(--secondaryColor);
+  color: var(--secondaryColor);
+  font-size: 1.2rem;
+}
+
+.input:focus-visible {
+  outline-color: var(--primaryColor);
+}
+
+.unit {
+  display: inline-block;
+  margin-left: 0.2rem;
+  width: 1rem;
+}

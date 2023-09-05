@@ -6,6 +6,7 @@ import styles from "./DoughConfigurationList.module.css";
 import { ConfigurationInputItem } from "./components/configuration/configurationInputItem/ConfigurationInputItem";
 import { ConfigurationToggleButton } from "./components/configuration/configurationToggleButton/ConfigurationToggleButton";
 import { PreDoughConfigurationItem } from "./preDoughConfiguration/PreDoughConfigurationItem";
+import { ConfigurationInputItem2 } from "./components/configuration/configurationInputItem2/ConfigurationInputItem2";
 
 export const DoughConfigurationList: React.FC = () => {
   const { t } = useTranslation();
@@ -15,7 +16,7 @@ export const DoughConfigurationList: React.FC = () => {
     <div className={styles.doughConfigurationList}>
       <fieldset>
         <legend>{t.parameters.title}</legend>
-        <ConfigurationInputItem
+        <ConfigurationInputItem2
           configuration={{ name: t.parameters.numberOfPizzas }}
           initialValue={context.doughConfig.value.numberOfPizzas}
           min={0}

@@ -1,4 +1,3 @@
-import { Button } from "../../../../../components/button/Button";
 import { ValueSlider } from "../../../../../components/valueSlider/ValueSlider";
 import { useModalDialog } from "../../../../../hooks/useModalDialog";
 import { ConfigurationItem } from "../ConfigurationItem";
