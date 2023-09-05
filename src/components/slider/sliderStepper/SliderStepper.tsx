@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
+import { getDecimalPlaces } from "../../../utils/math/getDecimalPlaces";
+import { round } from "../../../utils/math/round";
 import { Button } from "../../button/Button";
 import { Slider } from "../slider/Slider";
 import { ISliderStepperProps } from "./ISliderStepperProps";
 import styles from "./SliderStepper.module.css";
-import { round } from "../../../utils/math/round";
-import { getDecimalPlaces } from "../../../utils/math/getDecimalPlaces";
 
 export const SliderStepper: React.FC<ISliderStepperProps> = (props) => {
   const interval = props.interval ?? 1;
@@ -12,6 +12,11 @@ export const SliderStepper: React.FC<ISliderStepperProps> = (props) => {
   const [sliderValue, setSliderValue] = useState(
     Math.floor(initialValue / interval)
   );
+
+  // Calculate max slider value depending on the given interval.
+  // Assume min value = 1 max value = 10, but interval = 0.1
+  // means the slider has 0.1, 0.2, 0.3 ... steps
+  // From 0 - 10 means we have 100 steps.
   const sliderMax = useMemo((): number => {
     return props.max / interval;
   }, [interval, props.max]);
@@ -41,7 +46,7 @@ export const SliderStepper: React.FC<ISliderStepperProps> = (props) => {
   };
 
   useEffect(() => {
-    // Consider interval and calculate back from slider value to correct value    
+    // Consider interval and calculate back from slider value to correct value
     const decimalPlaces = getDecimalPlaces(interval);
     const newValue = round(sliderValue * interval, decimalPlaces);
     props.onChange?.(newValue);
@@ -54,7 +59,7 @@ export const SliderStepper: React.FC<ISliderStepperProps> = (props) => {
         -
       </Button>
       <Slider
-        max={props.max}
+        max={sliderMax}
         min={props.min}
         onChange={onChange}
         value={sliderValue}
