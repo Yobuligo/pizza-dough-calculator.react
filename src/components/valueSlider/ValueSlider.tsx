@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { getDecimalPlaces } from "../../utils/getDecimalPlaces";
+import { getDecimalPlaces } from "../../utils/math/getDecimalPlaces";
 import { Button } from "../button/Button";
 import { IValueSliderProps } from "./IValueSliderProps";
 import styles from "./ValueSlider.module.css";
