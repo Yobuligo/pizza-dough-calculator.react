@@ -11,7 +11,7 @@ export const HoneyTile: React.FC<ITile> = (props) => {
       ingredient={{
         name: t.ingredients.honey,
         amount: props.amount,
-        unit: Unit.MILLILITER,
+        unit: Unit.GRAMS,
       }}
       image={(className) => <Honey className={className} />}
     />

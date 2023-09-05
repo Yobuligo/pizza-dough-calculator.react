@@ -11,7 +11,7 @@ export const WaterTile: React.FC<ITile> = (props) => {
       ingredient={{
         name: t.ingredients.water,
         amount: props.amount,
-        unit: Unit.MILLILITER,
+        unit: Unit.GRAMS,
       }}
       image={(className) => <Water className={className} />}
     />
