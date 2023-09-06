@@ -6,7 +6,6 @@ import styles from "./DoughConfigurationList.module.css";
 import { ConfigurationInputItem } from "./components/configuration/configurationInputItem/ConfigurationInputItem";
 import { ConfigurationToggleButton } from "./components/configuration/configurationToggleButton/ConfigurationToggleButton";
 import { PreDoughConfigurationItem } from "./preDoughConfiguration/PreDoughConfigurationItem";
-import { ConfigurationInputItem2 } from "./components/configuration/configurationInputItem2/ConfigurationInputItem2";
 
 export const DoughConfigurationList: React.FC = () => {
   const { t } = useTranslation();
@@ -17,7 +16,7 @@ export const DoughConfigurationList: React.FC = () => {
       <fieldset>
         <legend>{t.parameters.title}</legend>
         <div className={styles.configurationItemList}>
-          <ConfigurationInputItem2
+          <ConfigurationInputItem
             configuration={{ name: t.parameters.numberOfPizzas }}
             initialValue={context.doughConfig.value.numberOfPizzas}
             min={0}
@@ -29,7 +28,7 @@ export const DoughConfigurationList: React.FC = () => {
               });
             }}
           />
-          <ConfigurationInputItem2
+          <ConfigurationInputItem
             configuration={{ name: t.parameters.weightOfDoughPiece }}
             initialValue={context.doughConfig.value.weightOfDoughPiece}
             min={0}
@@ -41,7 +40,7 @@ export const DoughConfigurationList: React.FC = () => {
               });
             }}
           />
-          <ConfigurationInputItem2
+          <ConfigurationInputItem
             configuration={{ name: t.parameters.hydration }}
             initialValue={context.doughConfig.value.hydration}
             min={0}
@@ -53,7 +52,7 @@ export const DoughConfigurationList: React.FC = () => {
               });
             }}
           />
-          <ConfigurationInputItem2
+          <ConfigurationInputItem
             configuration={{ name: t.parameters.salt }}
             initialValue={context.doughConfig.value.salt}
             interval={0.1}
