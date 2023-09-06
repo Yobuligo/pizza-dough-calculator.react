@@ -56,7 +56,7 @@ export const SliderStepper: React.FC<ISliderStepperProps> = (props) => {
   return (
     <div className={styles.container}>
       <Button className={styles.button} onClick={onDecreaseValue}>
-        -
+        {`<`}
       </Button>
       <Slider
         max={sliderMax}
@@ -65,7 +65,7 @@ export const SliderStepper: React.FC<ISliderStepperProps> = (props) => {
         value={sliderValue}
       />
       <Button className={styles.button} onClick={onIncreaseValue}>
-        +
+      {`>`}
       </Button>
     </div>
   );

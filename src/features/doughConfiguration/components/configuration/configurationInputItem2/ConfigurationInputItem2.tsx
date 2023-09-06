@@ -1,7 +1,10 @@
+import { Button } from "../../../../../components/button/Button";
+import { Slider } from "../../../../../components/slider/slider/Slider";
 import { SliderStepper } from "../../../../../components/slider/sliderStepper/SliderStepper";
 import { ConfigurationItem } from "../ConfigurationItem";
 import styles from "./ConfigurationInputItem2.module.css";
 import { IConfigurationInputItem2Props } from "./IConfigurationInputItem2Props";
+import Test from "./Test";
 
 export function ConfigurationInputItem2<T>(
   props: IConfigurationInputItem2Props<T>
@@ -24,6 +27,7 @@ export function ConfigurationInputItem2<T>(
         className={`${styles.configurationItem} ${props.className}`}
       >
         {props.children}
+        <Button className={styles.buttonLeft}>{`<`}</Button>
         <input
           type={getTypeByInitialValue(props.initialValue)}
           onChange={(event) => props.onInputChange(event.target.value as T)}
@@ -31,9 +35,11 @@ export function ConfigurationInputItem2<T>(
           value={props.initialValue as string}
           disabled={props.disabled}
         />
+        <Button className={styles.buttonRight}>{`>`}</Button>
         {props.unit && <div className={styles.unit}>{props.unit}</div>}
       </ConfigurationItem>
-      <SliderStepper
+      <Slider max={0} min={100} />
+      {/* <SliderStepper
         initialValue={props.initialValue as number}
         interval={props.interval}
         max={props.max}
@@ -41,7 +47,7 @@ export function ConfigurationInputItem2<T>(
         onChange={(newValue) => {
           props.onInputChange(newValue as T);
         }}
-      />
+      /> */}
     </div>
   );
 }
