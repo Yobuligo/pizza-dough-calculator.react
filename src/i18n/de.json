@@ -3,6 +3,9 @@
         "okay": "Ok",
         "cancel": "Abbrechen"
     },
+    "settings": {
+        "title": "Einstellungen"
+    },
     "title": "Pizzateig Rechner",
     "doughTypes": {
         "preDough": "Vorteig",

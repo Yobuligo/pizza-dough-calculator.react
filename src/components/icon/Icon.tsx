@@ -6,7 +6,7 @@ export const Icon: React.FC<IIconProps> = (props) => {
   return (
     <span
       className={style("material-symbols-outlined", styles.icon)}
-      onClick={() => console.log(`Menu was clicked`)}
+      onClick={props.onClick}
     >
       {props.iconType}
     </span>

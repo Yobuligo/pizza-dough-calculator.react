@@ -3,6 +3,9 @@
         "okay": "Ok",
         "cancel": "Cancel"
     },
+    "settings": {
+        "title": "Settings"
+    },
     "title": "Pizza Dough Calculator",
     "doughTypes": {
         "preDough": "Pre dough",
