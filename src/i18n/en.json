@@ -4,7 +4,8 @@
         "cancel": "Cancel"
     },
     "settings": {
-        "title": "Settings"
+        "title": "Settings",
+        "language": "Language"
     },
     "title": "Pizza Dough Calculator",
     "doughTypes": {

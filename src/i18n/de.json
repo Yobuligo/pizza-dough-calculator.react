@@ -4,7 +4,8 @@
         "cancel": "Abbrechen"
     },
     "settings": {
-        "title": "Einstellungen"
+        "title": "Settings",
+        "language": "Sprache"
     },
     "title": "Pizzateig Rechner",
     "doughTypes": {
