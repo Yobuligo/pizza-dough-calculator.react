@@ -15,6 +15,7 @@ export const SettingsIcon: React.FC = () => {
         modalDialog.show({
           component: <Settings />,
           title: t.settings.title,
+          width: "20rem"
         })
       }
     />
