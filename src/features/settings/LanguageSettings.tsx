@@ -5,16 +5,20 @@ import { findLanguages } from "../../utils/findLanguage";
 
 export const LanguageSettings: React.FC = () => {
   const { t } = useTranslation();
-  const [language, setLanguage] = useLanguage();
+  const language = useLanguage();
 
   const options = findLanguages().map((item) => (
-    <option key={item.key} selected={item.title === language} value={item.key}>
+    <option
+      key={item.key}
+      selected={item.title === language.value}
+      value={item.key}
+    >
       {item.title}
     </option>
   ));
 
   const onChangeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setLanguage((LanguageType as any)[event.target.value]);
+    language.setValue((LanguageType as any)[event.target.value]);
   };
 
   const content = (

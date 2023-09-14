@@ -3,8 +3,8 @@ import { LanguageType } from "../types/LanguageType";
 import { useLanguage } from "./useLanguage";
 
 export const useTranslation = () => {
-  const [language] = useLanguage();
-  switch (language) {
+  const language = useLanguage();
+  switch (language.value) {
     case LanguageType.DE:
       return { t: translations["de"] };
 

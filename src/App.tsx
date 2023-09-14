@@ -2,6 +2,7 @@ import { useCallback, useEffect } from "react";
 import styles from "./App.module.css";
 import { ModalDialog } from "./components/modalDialog/ModalDialog";
 import { AppContext } from "./context/AppContext";
+import { useLanguage } from "./hooks/useLanguage";
 import { useValue } from "./hooks/useValue";
 import { IDoughConfig } from "./model/IDoughConfig";
 import { DashboardPage } from "./pages/DashboardPage";
@@ -61,6 +62,7 @@ const App: React.FC = () => {
       <AppContext.Provider
         value={{
           doughConfig,
+          language: useLanguage(),
           modalDialogConfig,
           recipeWithPreDough,
           recipeWithoutPreDough,
