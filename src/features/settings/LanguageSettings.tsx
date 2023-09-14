@@ -7,23 +7,18 @@ export const LanguageSettings: React.FC = () => {
   const { t } = useTranslation();
   const [language, setLanguage] = useLanguage();
 
-  const options = findLanguages().map((language) => (
-    <option key={language.key} value={language.key}>
-      {language.title}
+  const options = findLanguages().map((item) => (
+    <option key={item.key} selected={item.title === language} value={item.key}>
+      {item.title}
     </option>
   ));
 
+  const onChangeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setLanguage((LanguageType as any)[event.target.value]);
+  };
+
   const content = (
-    <select
-      name="language"
-      id="language"
-      value={(LanguageType as any)[language]}
-      onChange={(event) => {
-        console.log(`Language was changed to ${event.target.value}`);
-        setLanguage((LanguageType as any)[event.target.value]);
-        // setLanguage(event.target.value as LanguageType)
-      }}
-    >
+    <select name="language" id="language" onChange={onChangeLanguage}>
       {options}
     </select>
   );
