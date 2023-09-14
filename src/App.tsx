@@ -2,7 +2,7 @@ import { useCallback, useEffect } from "react";
 import styles from "./App.module.css";
 import { ModalDialog } from "./components/modalDialog/ModalDialog";
 import { AppContext } from "./context/AppContext";
-import { useLanguage } from "./hooks/useLanguage";
+import { useLocalStorageValue } from "./hooks/useLocalStorageValue";
 import { useValue } from "./hooks/useValue";
 import { IDoughConfig } from "./model/IDoughConfig";
 import { DashboardPage } from "./pages/DashboardPage";
@@ -11,12 +11,14 @@ import { CalculatorWithoutPreDough } from "./services/calculator/calculatorWitho
 import { IModalDialogConfig } from "./types/IModalDialogConfig";
 import { IRecipeWithPreDough } from "./types/IRecipeWithPreDough";
 import { IRecipeWithoutPreDough } from "./types/IRecipeWithoutPreDough";
+import { LanguageType } from "./types/LanguageType";
 import { readDoughConfig } from "./utils/readDoughConfig";
 import { writeDoughConfig } from "./utils/writeDoughConfig";
 
 const App: React.FC = () => {
   const modalDialogConfig = useValue<IModalDialogConfig>({ show: false });
   const doughConfig = useValue<IDoughConfig>(readDoughConfig());
+  const language = useLocalStorageValue("language", LanguageType.DE);
 
   const recipeWithoutPreDough = useValue<IRecipeWithoutPreDough>({
     flour: 0,
@@ -62,7 +64,7 @@ const App: React.FC = () => {
       <AppContext.Provider
         value={{
           doughConfig,
-          language: useLanguage(),
+          language,
           modalDialogConfig,
           recipeWithPreDough,
           recipeWithoutPreDough,

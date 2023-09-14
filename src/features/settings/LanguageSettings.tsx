@@ -1,16 +1,18 @@
-import { useLanguage } from "../../hooks/useLanguage";
+import { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 import { useTranslation } from "../../hooks/useTranslation";
 import { LanguageType } from "../../types/LanguageType";
 import { findLanguages } from "../../utils/findLanguage";
+import { isNotNull } from "../../utils/isNotNull";
 
 export const LanguageSettings: React.FC = () => {
+  const context = useContext(AppContext);
   const { t } = useTranslation();
-  const language = useLanguage();
 
   const options = findLanguages().map((item) => (
     <option
       key={item.key}
-      selected={item.title === language.value}
+      selected={item.title === context.language.value}
       value={item.key}
     >
       {item.title}
@@ -18,7 +20,9 @@ export const LanguageSettings: React.FC = () => {
   ));
 
   const onChangeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    language.setValue((LanguageType as any)[event.target.value]);
+    isNotNull(event.target.value, (value) =>
+      context.language.setValue((LanguageType as any)[value])
+    );
   };
 
   const content = (
