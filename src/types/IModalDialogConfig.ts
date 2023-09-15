@@ -5,6 +5,6 @@ export interface IModalDialogConfig {
   onClose?: () => void;
   onOkay?: () => void;
   show: boolean;
-  title?: string;
+  title?: string | (() => string);
   width?: string;
 }
