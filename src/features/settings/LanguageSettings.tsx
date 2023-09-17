@@ -37,8 +37,8 @@ export const LanguageSettings: React.FC = () => {
     </select>
   );
   return (
-    <>
+    <div className={styles.text}>
       {t.settings.language}: {content}
-    </>
+    </div>
   );
 };
