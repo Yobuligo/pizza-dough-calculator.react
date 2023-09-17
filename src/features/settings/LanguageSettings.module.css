@@ -1,0 +1,4 @@
+.select {
+  color: var(--secondaryColor);
+  border: 1px solid var(--primaryColor);
+}
