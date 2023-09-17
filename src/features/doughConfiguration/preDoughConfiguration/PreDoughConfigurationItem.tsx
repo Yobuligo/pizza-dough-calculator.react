@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Switch } from "../../../components/switch/Switch";
 import { AppContext } from "../../../context/AppContext";
 import { useTranslation } from "../../../hooks/useTranslation";
+import { texts } from "../../../utils/translation/texts";
 import { Unit } from "../../ingredient/model/Unit";
 import { ConfigurationInputItem } from "../components/configuration/configurationInputItem/ConfigurationInputItem";
 import styles from "./PreDoughConfigurationItem.module.css";
@@ -36,7 +37,7 @@ export const PreDoughConfigurationItem: React.FC = () => {
 
   return (
     <ConfigurationInputItem
-      configuration={{ name: t.parameters.preparePreDough }}
+      configuration={{ name: t(texts.parameters.preparePreDough) }}
       disabled={!usePreDough}
       onInputChange={(value) => validateAndSetAmountPreDough(value as number)}
       initialValue={context.doughConfig.value.percentPreDough}

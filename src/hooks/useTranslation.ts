@@ -2,24 +2,36 @@ import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import * as translations from "../i18n";
 import { LanguageType } from "../types/LanguageType";
-import { texts } from "../utils/translation/texts";
 
 export const useTranslation = () => {
   const context = useContext(AppContext);
 
-  const test = texts.settings.title;
+  const language = () => {
+    switch (context.language.value) {
+      case LanguageType.DE: {
+        return "de";
+      }
 
-  switch (context.language.value) {
-    case LanguageType.DE: {
-      return { t: translations["de"] };
+      case LanguageType.EN: {
+        return "en";
+      }
+      default:
+        throw new Error(
+          `Error while getting translations. Language '${context.language}' is not supported.`
+        );
     }
+  };
 
-    case LanguageType.EN: {
-      return { t: translations["en"] };
-    }
-    default:
-      throw new Error(
-        `Error while getting translations. Language '${context.language}' is not supported.`
-      );
-  }
+  const getTranslations = (keys: string[]) => {
+    return keys.reduce((obj, key) => {
+      return obj[key];
+    }, (translations as any)[language()]);
+  };
+
+  const t = (key: string) => {
+    const keySegments = key.split(".");
+    return getTranslations(keySegments);
+  };
+
+  return { t };
 };

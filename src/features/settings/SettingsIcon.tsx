@@ -2,6 +2,7 @@ import { Icon } from "../../components/icon/Icon";
 import { useModalDialog } from "../../hooks/useModalDialog";
 import { useTranslation } from "../../hooks/useTranslation";
 import { IconType } from "../../types/IconType";
+import { texts } from "../../utils/translation/texts";
 import { Settings } from "./Settings";
 
 export const SettingsIcon: React.FC = () => {
@@ -14,7 +15,7 @@ export const SettingsIcon: React.FC = () => {
       onClick={() =>
         modalDialog.show({
           component: <Settings />,
-          title: () => t.settings.title,
+          title: () => t(texts.settings.title),
           width: "20rem",
         })
       }

@@ -1,5 +1,6 @@
 import { ReactComponent as Yeast } from "../../../assets/yeast.svg";
 import { useTranslation } from "../../../hooks/useTranslation";
+import { texts } from "../../../utils/translation/texts";
 import { IngredientTile } from "../ingredientTile/IngredientTile";
 import { Unit } from "../model/Unit";
 import { ITile } from "./ITile";
@@ -9,7 +10,7 @@ export const YeastTile: React.FC<ITile> = (props) => {
   return (
     <IngredientTile
       ingredient={{
-        name: t.ingredients.yeast,
+        name: t(texts.ingredients.yeast),
         amount: props.amount,
         unit: Unit.GRAMS,
       }}

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
 import { useTranslation } from "../../hooks/useTranslation";
+import { texts } from "../../utils/translation/texts";
 import { Unit } from "../ingredient/model/Unit";
 import styles from "./DoughConfigurationList.module.css";
 import { ConfigurationInputItem } from "./components/configuration/configurationInputItem/ConfigurationInputItem";
@@ -14,10 +15,10 @@ export const DoughConfigurationList: React.FC = () => {
   return (
     <div className={styles.doughConfigurationList}>
       <fieldset>
-        <legend>{t.parameters.title}</legend>
+        <legend>{t(texts.parameters.title)}</legend>
         <div className={styles.configurationItemList}>
           <ConfigurationInputItem
-            configuration={{ name: t.parameters.numberOfPizzas }}
+            configuration={{ name: t(texts.parameters.numberOfPizzas) }}
             initialValue={context.doughConfig.value.numberOfPizzas}
             min={0}
             max={100}
@@ -29,7 +30,7 @@ export const DoughConfigurationList: React.FC = () => {
             }}
           />
           <ConfigurationInputItem
-            configuration={{ name: t.parameters.weightOfDoughPiece }}
+            configuration={{ name: t(texts.parameters.weightOfDoughPiece) }}
             initialValue={context.doughConfig.value.weightOfDoughPiece}
             min={0}
             max={1000}
@@ -41,7 +42,7 @@ export const DoughConfigurationList: React.FC = () => {
             }}
           />
           <ConfigurationInputItem
-            configuration={{ name: t.parameters.hydration }}
+            configuration={{ name: t(texts.parameters.hydration) }}
             initialValue={context.doughConfig.value.hydration}
             min={0}
             max={100}
@@ -53,7 +54,7 @@ export const DoughConfigurationList: React.FC = () => {
             }}
           />
           <ConfigurationInputItem
-            configuration={{ name: t.parameters.salt }}
+            configuration={{ name: t(texts.parameters.salt) }}
             initialValue={context.doughConfig.value.salt}
             interval={0.1}
             min={0}
@@ -67,8 +68,8 @@ export const DoughConfigurationList: React.FC = () => {
           />
           <PreDoughConfigurationItem />
           <ConfigurationToggleButton
-            configuration={{ name: t.parameters.risingTime }}
-            values={[t.parameters.short, t.parameters.long]}
+            configuration={{ name: t(texts.parameters.risingTime) }}
+            values={[t(texts.parameters.short), t(texts.parameters.long)]}
             selected={context.doughConfig.value.risingTime}
             onChange={(index) =>
               context.doughConfig.setValue((previous) => {
@@ -77,8 +78,11 @@ export const DoughConfigurationList: React.FC = () => {
             }
           />
           <ConfigurationToggleButton
-            configuration={{ name: t.parameters.yeastType }}
-            values={[t.parameters.dryYeast, t.parameters.freshYeast]}
+            configuration={{ name: t(texts.parameters.yeastType) }}
+            values={[
+              t(texts.parameters.dryYeast),
+              t(texts.parameters.freshYeast),
+            ]}
             selected={context.doughConfig.value.yeastType}
             onChange={(index) =>
               context.doughConfig.setValue((previous) => {

@@ -4,6 +4,7 @@ import { useTranslation } from "../../hooks/useTranslation";
 import { LanguageType } from "../../types/LanguageType";
 import { findLanguages } from "../../utils/findLanguage";
 import { isNotNull } from "../../utils/isNotNull";
+import { texts } from "../../utils/translation/texts";
 import styles from "./LanguageSettings.module.css";
 
 export const LanguageSettings: React.FC = () => {
@@ -38,7 +39,7 @@ export const LanguageSettings: React.FC = () => {
   );
   return (
     <div className={styles.text}>
-      {t.settings.language}: {content}
+      {t(texts.settings.language)}: {content}
     </div>
   );
 };

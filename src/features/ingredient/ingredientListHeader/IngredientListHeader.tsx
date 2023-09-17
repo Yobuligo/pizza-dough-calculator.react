@@ -4,6 +4,7 @@ import { ToggleButtonGroup } from "../../../components/toggleButtonGroup/ToggleB
 import { AppContext } from "../../../context/AppContext";
 import { useTranslation } from "../../../hooks/useTranslation";
 import { style } from "../../../utils/style";
+import { texts } from "../../../utils/translation/texts";
 import { IIngredientListHeaderProps } from "./IIngredientListHeaderProps";
 import styles from "./IngredientListHeader.module.css";
 
@@ -30,7 +31,7 @@ export const IngredientListHeader: React.FC<IIngredientListHeaderProps> = (
               : styles.headerToggleButtonUnselected,
             toggleButtonGroupDisabled ? styles.headerToggleButtonDisabled : ""
           )}
-          caption={t.doughTypes.preDough}
+          caption={t(texts.doughTypes.preDough)}
         />
         <ToggleButton
           className={style(
@@ -41,7 +42,7 @@ export const IngredientListHeader: React.FC<IIngredientListHeaderProps> = (
               : styles.headerToggleButtonUnselected,
             toggleButtonGroupDisabled ? styles.headerToggleButtonDisabled : ""
           )}
-          caption={t.doughTypes.mainDough}
+          caption={t(texts.doughTypes.mainDough)}
         />
       </ToggleButtonGroup>
     </div>
