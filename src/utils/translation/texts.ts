@@ -33,10 +33,10 @@ const fillPath = (object: object, path: string) => {
   return object;
 };
 
-const createObject = () => {
+const createTextObject = () => {
   const texts = { ...translations["en"] };
   fillPath(texts, "");
   return texts;
 };
 
-export const texts = createObject();
+export const texts = createTextObject();
