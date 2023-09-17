@@ -1,5 +1,21 @@
 import * as translations from "../../i18n";
 
+/**
+ * This function is responsible for setting the path for each text instead of having the text itself.
+ * E.g.
+ *    {
+ *      settings: {
+ *          title: "My title"
+ *      }
+ *    }
+ *
+ * becomes
+ *    {
+ *      settings: {
+ *          title: "settings.title"
+ *      }
+ *    }
+ */
 const fillPath = (object: object, path: string) => {
   const prefix = path ? `${path}.` : "";
   for (const propName in object) {
