@@ -6,11 +6,15 @@ import { LanguageType } from "../types/LanguageType";
 export const useTranslation = () => {
   const context = useContext(AppContext);
   switch (context.language.value) {
-    case LanguageType.DE:
+    case LanguageType.DE: {
+      const t = translations["de"];
       return { t: translations["de"] };
+    }
 
-    case LanguageType.EN:
+    case LanguageType.EN: {
+      const t = translations["en"];
       return { t: translations["en"] };
+    }
     default:
       throw new Error(
         `Error while getting translations. Language '${context.language}' is not supported.`
