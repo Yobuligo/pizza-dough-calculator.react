@@ -35,9 +35,10 @@ const fillPath = (source: object, path: string) => {
 };
 
 const createTextObject = () => {
-  // const texts = { ...translations["en"] };
-  // fillPath(texts, "");
-  const texts: typeof translations["en"] = fillPath(translations["en"], "") as any;
+  const texts: (typeof translations)["en"] = fillPath(
+    translations["en"],
+    ""
+  ) as any;
   return texts;
 };
 
