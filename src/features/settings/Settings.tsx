@@ -1,4 +1,4 @@
-import { LanguageSettings } from "./LanguageSettings";
+import { LanguageSettings } from "./languageSettings/LanguageSettings";
 import styles from "./Settings.module.css";
 
 export const Settings: React.FC = () => {

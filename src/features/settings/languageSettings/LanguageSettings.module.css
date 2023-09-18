@@ -1,0 +1,9 @@
+.languageSettings{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.text {
+  font-weight: 600;
+}

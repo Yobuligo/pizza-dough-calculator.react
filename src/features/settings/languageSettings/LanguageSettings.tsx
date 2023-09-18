@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { ToggleButton } from "../../components/toggleButton/ToggleButton";
-import { ToggleButtonGroup } from "../../components/toggleButtonGroup/ToggleButtonGroup";
-import { AppContext } from "../../context/AppContext";
-import { useTranslation } from "../../hooks/useTranslation";
-import { texts } from "../../i18n/texts";
-import { LanguageType } from "../../types/LanguageType";
-import { Language } from "../../utils/Language";
+import { ToggleButton } from "../../../components/toggleButton/ToggleButton";
+import { ToggleButtonGroup } from "../../../components/toggleButtonGroup/ToggleButtonGroup";
+import { AppContext } from "../../../context/AppContext";
+import { useTranslation } from "../../../hooks/useTranslation";
+import { texts } from "../../../i18n/texts";
+import { LanguageType } from "../../../types/LanguageType";
+import { Language } from "../../../utils/Language";
 import styles from "./LanguageSettings.module.css";
 
 export const LanguageSettings: React.FC = () => {
@@ -21,8 +21,8 @@ export const LanguageSettings: React.FC = () => {
   ));
 
   return (
-    <div className={styles.text}>
-      <div>{t(texts.settings.language)}</div>
+    <div className={styles.languageSettings}>
+      <div className={styles.text}>{t(texts.settings.language)}</div>
       <div>
         <ToggleButtonGroup
           selected={Language.getIndexOfLanguageType(context.language.value)}
