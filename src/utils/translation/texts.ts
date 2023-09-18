@@ -16,26 +16,28 @@ import * as translations from "../../i18n";
  *      }
  *    }
  */
-const fillPath = (object: object, path: string) => {
+const fillPath = (source: object, path: string) => {
   const prefix = path ? `${path}.` : "";
-  for (const propName in object) {
-    const prop = (object as any)[propName];
-    if (typeof prop !== "object") {
-      (object as any)[propName] = `${prefix}${propName}`;
+  const target = {};
+  for (const propName in source) {
+    const propValue = (source as any)[propName];
+    if (typeof propValue !== "object") {
+      (target as any)[propName] = `${prefix}${propName}`;
     } else {
       const prefixSubObject = prefix ? `${prefix}${propName}` : propName;
-      (object as any)[propName] = fillPath(
-        (object as any)[propName],
+      (target as any)[propName] = fillPath(
+        (source as any)[propName],
         prefixSubObject
       );
     }
   }
-  return object;
+  return target;
 };
 
 const createTextObject = () => {
-  const texts = { ...translations["en"] };
-  fillPath(texts, "");
+  // const texts = { ...translations["en"] };
+  // fillPath(texts, "");
+  const texts: typeof translations["en"] = fillPath(translations["en"], "") as any;
   return texts;
 };
 

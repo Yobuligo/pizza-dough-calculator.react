@@ -11,7 +11,6 @@ export const useTranslation = () => {
       case LanguageType.DE: {
         return "de";
       }
-
       case LanguageType.EN: {
         return "en";
       }
@@ -23,9 +22,10 @@ export const useTranslation = () => {
   };
 
   const getTranslations = (keys: string[]) => {
-    return keys.reduce((obj, key) => {
+    const result = keys.reduce((obj, key) => {
       return obj[key];
     }, (translations as any)[language()]);
+    return result
   };
 
   const t = (key: string) => {
