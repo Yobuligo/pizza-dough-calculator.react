@@ -73,7 +73,7 @@ const App: React.FC = () => {
         {modalDialogConfig.value.show && (
           <ModalDialog
             {...modalDialogConfig.value}
-            onClose={onCloseModalDialog}
+            onOkay={onCloseModalDialog}
           />
         )}
         <DashboardPage />

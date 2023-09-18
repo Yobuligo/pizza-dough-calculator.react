@@ -19,7 +19,7 @@ export const ModalDialog: React.FC<IModalDialogProps> = (props) => {
 
   return ReactDOM.createPortal(
     <div className={styles.modalContainer}>
-      <div className={styles.modalBackdrop} onClick={props.onClose}></div>
+      <div className={styles.modalBackdrop} onClick={props.onOkay}></div>
       <Card className={styles.modalDialog} style={{ width: props.width }}>
         <header>
           <h3 className={styles.modalDialogHeader}>{title}</h3>
