@@ -26,11 +26,7 @@ export function ConfigurationInputItem<T>(
         type={getTypeByInitialValue(props.initialValue)}
         onChange={(event) => {
           const newValue = parseFloat(event.target.value);
-          if (newValue >= 0) {
-            props.onInputChange(newValue as T);
-          } else if (event.target.value === "") {
-            props.onInputChange(0 as T);
-          }
+          props.onInputChange(newValue as T);
         }}
         className={styles.input}
         value={props.initialValue as string}
