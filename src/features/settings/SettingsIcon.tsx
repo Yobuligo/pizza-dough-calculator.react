@@ -2,7 +2,7 @@ import { Icon } from "../../components/icon/Icon";
 import { useModalDialog } from "../../hooks/useModalDialog";
 import { useTranslation } from "../../hooks/useTranslation";
 import { IconType } from "../../types/IconType";
-import { texts } from "../../utils/translation/texts";
+import { texts } from "../../i18n/texts";
 import { Settings } from "./Settings";
 
 export const SettingsIcon: React.FC = () => {

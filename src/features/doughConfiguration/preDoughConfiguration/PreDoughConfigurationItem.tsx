@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Switch } from "../../../components/switch/Switch";
 import { AppContext } from "../../../context/AppContext";
 import { useTranslation } from "../../../hooks/useTranslation";
-import { texts } from "../../../utils/translation/texts";
+import { texts } from "../../../i18n/texts";
 import { Unit } from "../../ingredient/model/Unit";
 import { ConfigurationInputItem } from "../components/configuration/configurationInputItem/ConfigurationInputItem";
 import styles from "./PreDoughConfigurationItem.module.css";

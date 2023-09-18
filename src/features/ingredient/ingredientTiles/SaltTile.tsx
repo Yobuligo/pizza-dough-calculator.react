@@ -1,6 +1,6 @@
 import { ReactComponent as Salt } from "../../../assets/salt.svg";
 import { useTranslation } from "../../../hooks/useTranslation";
-import { texts } from "../../../utils/translation/texts";
+import { texts } from "../../../i18n/texts";
 import { IngredientTile } from "../ingredientTile/IngredientTile";
 import { Unit } from "../model/Unit";
 import { ITile } from "./ITile";

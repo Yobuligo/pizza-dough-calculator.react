@@ -4,7 +4,7 @@ import { useTranslation } from "../../hooks/useTranslation";
 import { LanguageType } from "../../types/LanguageType";
 import { findLanguages } from "../../utils/findLanguage";
 import { isNotNull } from "../../utils/isNotNull";
-import { texts } from "../../utils/translation/texts";
+import { texts } from "../../i18n/texts";
 import styles from "./LanguageSettings.module.css";
 
 export const LanguageSettings: React.FC = () => {

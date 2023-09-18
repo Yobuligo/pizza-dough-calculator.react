@@ -4,7 +4,7 @@ import { ToggleButtonGroup } from "../../../components/toggleButtonGroup/ToggleB
 import { AppContext } from "../../../context/AppContext";
 import { useTranslation } from "../../../hooks/useTranslation";
 import { style } from "../../../utils/style";
-import { texts } from "../../../utils/translation/texts";
+import { texts } from "../../../i18n/texts";
 import { IIngredientListHeaderProps } from "./IIngredientListHeaderProps";
 import styles from "./IngredientListHeader.module.css";
 
