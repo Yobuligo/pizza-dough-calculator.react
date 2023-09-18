@@ -1,45 +1,35 @@
 import { useContext } from "react";
+import { ToggleButton } from "../../components/toggleButton/ToggleButton";
+import { ToggleButtonGroup } from "../../components/toggleButtonGroup/ToggleButtonGroup";
 import { AppContext } from "../../context/AppContext";
 import { useTranslation } from "../../hooks/useTranslation";
-import { LanguageType } from "../../types/LanguageType";
-import { findLanguages } from "../../utils/findLanguage";
-import { isNotNull } from "../../utils/isNotNull";
 import { texts } from "../../i18n/texts";
+import { LanguageType } from "../../types/LanguageType";
+import { Language } from "../../utils/Language";
 import styles from "./LanguageSettings.module.css";
 
 export const LanguageSettings: React.FC = () => {
   const context = useContext(AppContext);
   const { t } = useTranslation();
 
-  const options = findLanguages().map((item) => (
-    <option
+  const toggleButtons = Language.findLanguages().map((item) => (
+    <ToggleButton
       key={item.key}
-      selected={item.title === context.language.value}
-      value={item.key}
-    >
-      {item.title}
-    </option>
+      caption={item.title}
+      onClick={() => context.language.setValue(item.title as LanguageType)}
+    />
   ));
 
-  const onChangeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    isNotNull(event.target.value, (value) =>
-      context.language.setValue((LanguageType as any)[value])
-    );
-  };
-
-  const content = (
-    <select
-      className={styles.select}
-      name="language"
-      id="language"
-      onChange={onChangeLanguage}
-    >
-      {options}
-    </select>
-  );
   return (
     <div className={styles.text}>
-      {t(texts.settings.language)}: {content}
+      <div>{t(texts.settings.language)}</div>
+      <div>
+        <ToggleButtonGroup
+          selected={Language.getIndexOfLanguageType(context.language.value)}
+        >
+          {toggleButtons}
+        </ToggleButtonGroup>
+      </div>
     </div>
   );
 };
