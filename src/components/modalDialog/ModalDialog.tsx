@@ -14,7 +14,8 @@ export const ModalDialog: React.FC<IModalDialogProps> = (props) => {
     props.onClose?.();
   };
 
-  const title = typeof props.title === "function" ? props.title() : props.title;
+  const title =
+    typeof props.title === "function" ? t(props.title()) : props.title;
 
   return ReactDOM.createPortal(
     <div className={styles.modalContainer}>
