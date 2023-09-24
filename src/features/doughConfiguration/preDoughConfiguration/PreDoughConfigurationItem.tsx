@@ -39,7 +39,7 @@ export const PreDoughConfigurationItem: React.FC = () => {
     <ConfigurationInputItem
       configuration={{ name: t(texts.parameters.preparePreDough) }}
       disabled={!usePreDough}
-      onInputChange={(value) => validateAndSetAmountPreDough(value as number)}
+      onInputChange={(value) => validateAndSetAmountPreDough(value)}
       initialValue={context.doughConfig.value.percentPreDough}
       min={0}
       max={100}
