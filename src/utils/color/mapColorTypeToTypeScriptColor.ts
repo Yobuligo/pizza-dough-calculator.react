@@ -1,3 +1,4 @@
+import { NotSupportedError } from "../../errors/NotSupportedError";
 import { ColorType } from "./ColorType";
 
 export const mapColorTypeToTypeScriptColor = (colorType: ColorType): string => {
@@ -11,7 +12,7 @@ export const mapColorTypeToTypeScriptColor = (colorType: ColorType): string => {
     case ColorType.LIGHT:
       return "--light";
     default:
-      throw new Error(
+      throw new NotSupportedError(
         `There is no mapping for the ColorType ${colorType}. Please add the color type to the toTypeScriptColor-mapper.`
       );
   }

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
+import { NotSupportedError } from "../errors/NotSupportedError";
 import * as translations from "../i18n";
 import { LanguageType } from "../types/LanguageType";
 
@@ -15,7 +16,7 @@ export const useTranslation = () => {
         return "en";
       }
       default:
-        throw new Error(
+        throw new NotSupportedError(
           `Error while getting translations. Language '${context.language}' is not supported.`
         );
     }
@@ -25,7 +26,7 @@ export const useTranslation = () => {
     const result = keys.reduce((obj, key) => {
       return obj[key];
     }, (translations as any)[language()]);
-    return result
+    return result;
   };
 
   const t = (key: string) => {

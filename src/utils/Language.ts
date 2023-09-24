@@ -1,3 +1,4 @@
+import { NotSupportedError } from "../errors/NotSupportedError";
 import { ILanguage } from "../types/ILanguage";
 import { LanguageType } from "../types/LanguageType";
 
@@ -25,7 +26,7 @@ class LanguageDefault {
       }
     }
 
-    throw new Error(
+    throw new NotSupportedError(
       `Error while getting index of language type. Language type '${languageType}' is no valid language type value.`
     );
   }

@@ -1,3 +1,4 @@
+import { NotSupportedError } from "../../errors/NotSupportedError";
 import { YeastType } from "../../types/YeastType";
 import { DryYeastCalculator } from "./core/DryYeastCalculator";
 import { FreshYeastCalculator } from "./core/FreshYeastCalculator";
@@ -12,7 +13,7 @@ class YeastCalculatorFactoryDefault implements IYeastCalculatorFactory {
       case YeastType.FRESH:
         return FreshYeastCalculator;
       default:
-        throw new Error(
+        throw new NotSupportedError(
           `Error while getting YeastCalculator. Yeast type '${yeastType}' is not supported.`
         );
     }
