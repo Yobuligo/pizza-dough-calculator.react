@@ -21,11 +21,11 @@ export const IngredientListHeader: React.FC<IIngredientListHeaderProps> = (
         disabled={toggleButtonGroupDisabled}
         onSelected={props.onSelect}
         selected={props.selected}
+        className={styles.toggleButtonGroup}
       >
         <ToggleButton
           className={style(
             styles.headerToggleButton,
-            styles.headerToggleButtonLeft,
             props.selected === 0
               ? styles.headerToggleButtonSelected
               : styles.headerToggleButtonUnselected,
@@ -36,7 +36,6 @@ export const IngredientListHeader: React.FC<IIngredientListHeaderProps> = (
         <ToggleButton
           className={style(
             styles.headerToggleButton,
-            styles.headerToggleButtonRight,
             props.selected === 1
               ? styles.headerToggleButtonSelected
               : styles.headerToggleButtonUnselected,

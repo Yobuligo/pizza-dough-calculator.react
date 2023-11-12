@@ -32,5 +32,5 @@ export const ToggleButtonGroup: React.FC<IToggleButtonGroupProps> = (props) => {
     );
   });
 
-  return <>{items}</>;
+  return <div className={props.className}>{items}</div>;
 };

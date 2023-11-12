@@ -5,4 +5,5 @@ export interface IToggleButtonGroupProps {
   disabled?: boolean;
   onSelected?: (index: number) => void;
   selected?: number;
+  className?: string;
 }

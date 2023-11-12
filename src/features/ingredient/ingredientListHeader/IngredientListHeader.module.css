@@ -1,37 +1,33 @@
 .ingredientListHeader {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  padding: 2rem;
-  padding-bottom: 1rem;
-  padding-top: 0rem;
+  justify-content: start;
+}
+
+.toggleButtonGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 .headerToggleButton {
-  width: 8rem;
   color: var(--primary_100);
-  border-color: var(--primary_300);
+  border: none;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 0.5rem 1rem;
 }
 
 .headerToggleButtonSelected {
   background-color: var(--primary_500);
+  padding: 0.5rem 2.5rem;
 }
 
 .headerToggleButtonUnselected {
   background-color: var(--neutral_200);
 }
 
-.headerToggleButtonDisabled{
+.headerToggleButtonDisabled {
   color: var(--neutral_100);
   background-color: var(--neutral_200);
-}
-
-.headerToggleButtonLeft {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
-.headerToggleButtonRight {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
 }
