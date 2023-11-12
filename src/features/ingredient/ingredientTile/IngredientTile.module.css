@@ -3,11 +3,10 @@
   width: 5rem;
   font-size: small;
   font-weight: 600;
-  box-shadow: 1px 1px 1px 1px var(--primaryColor);
+  box-shadow: 1px 1px 1px 1px var(--primary_500);
   border-radius: 3px;
   padding: 0 0.5rem;
-  /* background-color: white; */
-  background-color: var(--light);
+  background-color: var(--primary_300);
 }
 
 .ingredientGrid {
@@ -22,23 +21,23 @@
   grid-row-end: 3;
   align-self: center;
   height: 1.5rem;
-  fill: var(--primaryColor);
-  stroke: var(--primaryColor);
+  fill: var(--neutral_900);
+  stroke: var(--neutral_900);
 }
 
 .ingredientTitle {
   display: inline-block;
   padding: 0.4rem 0.2rem 0.2rem 0.2rem;
-  border-bottom: 1px solid var(--secondaryColor);
+  border-bottom: 1px solid var(--primary_500);
   font-size: 1rem;
   align-self: flex-end;
-  color: var(--secondaryColor);
+  color: var(--neutral_900);
 }
 
 .ingredientAmount {
   font-weight: 800;
   font-size: 1rem;
-  color: var(--secondaryColor);
+  color: var(--neutral_900);
   padding: 0.3rem 0;
   justify-self: end;
   align-self: center;

@@ -4,13 +4,13 @@ import { ColorType } from "./ColorType";
 export const mapColorTypeToTypeScriptColor = (colorType: ColorType): string => {
   switch (colorType) {
     case ColorType.PRIMARY:
-      return "--primaryColor";
+      return "--primary_500";
     case ColorType.SECONDARY:
-      return "--secondaryColor";
+      return "--primary_900";
     case ColorType.ACCENT:
-      return "--accentColor";
+      return "--neutral_900";
     case ColorType.LIGHT:
-      return "--light";
+      return "--primary_100";
     default:
       throw new NotSupportedError(
         `There is no mapping for the ColorType ${colorType}. Please add the color type to the toTypeScriptColor-mapper.`

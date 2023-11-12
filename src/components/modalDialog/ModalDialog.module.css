@@ -26,24 +26,27 @@
   justify-content: center;
   margin: 0;
   margin-top: 1rem;
-  color: var(--secondaryColor);
+  color: var(--primary_500);
+  font-size: large;
 }
 
 .modalDialogMain {
-  margin: 1rem;
+  margin: 1.5rem;
 }
 
 .modalDialogFooter {
   display: flex;
   flex-direction: row;
   justify-content: right;
-  background-color: var(--lighter);
-  border-top: 1px solid var(--secondaryColor);
+  background-color: var(--primary_100);
+  border-top: 1px solid var(--primary_300);
   padding: 0.5rem;
   column-gap: 0.5rem;
+  border-radius: 0 0 5px 5px;
 }
 
 .okayButton {
-  background-color: var(--light);
+  color: var(--primary_100);
+  background-color: var(--primary_500);
   width: 4rem;
 }

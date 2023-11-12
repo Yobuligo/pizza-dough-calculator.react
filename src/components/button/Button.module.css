@@ -1,8 +1,8 @@
 .button {
   background-color: white;
-  border: 1px solid var(--primaryColor);
+  border: 1px solid var(--primary_300);
   font-size: medium;
   font-weight: 600;
   padding: 0.5rem;
-  color: var(--secondaryColor);
+  color: var(--primary_500);
 }

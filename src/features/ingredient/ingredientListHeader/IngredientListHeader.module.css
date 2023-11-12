@@ -9,21 +9,21 @@
 
 .headerToggleButton {
   width: 8rem;
-  color: white;
-  border-color: var(--accentColorOpacity50);
+  color: var(--primary_100);
+  border-color: var(--primary_300);
 }
 
 .headerToggleButtonSelected {
-  background-color: var(--accentColor);
+  background-color: var(--primary_500);
 }
 
 .headerToggleButtonUnselected {
-  background-color: var(--accentColorOpacity50);
+  background-color: var(--neutral_200);
 }
 
 .headerToggleButtonDisabled{
-  color: rgb(131, 131, 131);
-  background-color: var(--accentColorOpacity50);
+  color: var(--neutral_100);
+  background-color: var(--neutral_200);
 }
 
 .headerToggleButtonLeft {

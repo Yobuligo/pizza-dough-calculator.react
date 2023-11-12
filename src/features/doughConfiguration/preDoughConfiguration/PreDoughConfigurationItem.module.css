@@ -1,7 +1,7 @@
 .preDoughConfiguration input:disabled {
-  background-color: var(--light);
-  border-color: var(--primaryColor);
-  color: var(--primaryColor);
+  background-color: var(--neutral_200);
+  border-color: var(--neutral_500);
+  color: var(--primary_100);
 }
 
 .percentageLabel {
@@ -11,7 +11,7 @@
 .switch {
   margin-right: 0.5rem;
   --switchWidth: 3rem;
-  --colorOffState: var(--light);
-  /* --colorOnState: var(--secondaryColor); */
-  --colorOnState: var(--accentColor);
+  --colorOffState: var(--primary_300);
+  --colorOnState: var(--primary_500);
+  --sliderColor: var(--primary_100);
 }

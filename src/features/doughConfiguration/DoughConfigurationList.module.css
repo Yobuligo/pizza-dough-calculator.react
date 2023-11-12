@@ -1,18 +1,20 @@
 .doughConfigurationList fieldset {
   margin: 0 1rem;
   padding-top: 1rem;
-  border: 1px solid var(--secondaryColor);
+  border: 1px solid var(--neutral_900);
   border-radius: 2px;
-  color: var(--secondaryColor);
-  background-color: white;
-  box-shadow: 1px 1px 1px 1px var(--light);
+  color: var(--neutral_900);
+  background-color: var(--primary_100);
+  box-shadow: 1px 1px 3px 0px var(--neutral_500);
 }
 
-.doughConfigurationList fieldset legend{
-  font-size: 1.2rem;
+.doughConfigurationList fieldset legend {
+  font-size: 1.1rem;
+  letter-spacing: 0.15rem;
+  font-weight: 500;
 }
 
-.configurationItemList{
+.configurationItemList {
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
